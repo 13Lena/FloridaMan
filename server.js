@@ -11,7 +11,7 @@ const logger = require("morgan");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));
-app.use(flash())
+// app.use(flash())
 app.use(express.static("public"));
 app.use(session({
     secret: "keyboard cat",
