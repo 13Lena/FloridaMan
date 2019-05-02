@@ -1,8 +1,6 @@
-const vo = require("vo");
-const Nightmare = require("nightmare");
-const nightmare = Nightmare({
-    show: true
-});
+
+const router = require("express").Router();
+const db = require("../../models");
 
 
 // module.exports = function () {
@@ -97,9 +95,18 @@ const nightmare = Nightmare({
                     return obj;
                 }).then(function (response) {
                     // ***This is where we push JSON into an array to prep it for POST (then eventual AJAX calls)***
-                    jsonArr.push(response);
-                    console.log(response);
-                    example.push(response.headline);
+                    // jsonArr.push(response);
+                    // console.log(response);
+                    // example.push(response.headline);
+                    db.Article.create(response)
+                    .then(function (dbArticle) {
+                        // View the added result in the console
+                        console.log(dbArticle);
+                    })
+                    .catch(function (err) {
+                        // If an error occurred, log it
+                        console.log(err);
+                    });
                 });
         };
         console.log(example);
