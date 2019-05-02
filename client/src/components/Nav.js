@@ -1,7 +1,18 @@
-import React from "react";
-import { Dropdown, Input, Menu } from 'semantic-ui-react'
+import React, { Component } from "react";
+import { Dropdown, Input, Menu, Modal } from 'semantic-ui-react';
+import Login from "./Login";
+import LoginModal from "./Modal";
 
-function Nav() {
+class Nav extends Component {
+  state = {
+    open: false
+  }
+
+  handleItemClick = () => {
+    this.setState({ open: true })
+  }
+
+render() {
     return(
         // <nav>
         //     <h2>Florida Man</h2>
@@ -32,13 +43,15 @@ function Nav() {
 
         <Menu.Item
           name='login'
-        //   active={activeItem === 'login'}
-        //   onClick={this.handleItemClick}
+          // active={activeItem === 'login'}
+          onClick={this.handleItemClick}
         >
+        <LoginModal open={this.state.open}/>
           Login
         </Menu.Item>
       </Menu>
     );
+}
 }
 
 export default Nav;
