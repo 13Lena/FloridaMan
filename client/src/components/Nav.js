@@ -54,3 +54,4 @@ render() {
 }
 }
 
+export default Nav;
