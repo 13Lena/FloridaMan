@@ -65,11 +65,12 @@ class Nav extends Component {
 
           <Menu.Item>
 
-        < Input placeholder='Search...' />
-        </Menu.Item>
-          <Modal size={'mini'} trigger={
-            <Menu.Item
-              name='login'
+            < Input placeholder='Search...' />
+          </Menu.Item>
+            <Modal size={'tiny'} trigger={
+              <Menu.Item
+                name='login'
+
               // active={activeItem === 'login'}
               onClick={this.handleItemClick1}
             >
