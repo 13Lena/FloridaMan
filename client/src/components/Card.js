@@ -11,6 +11,7 @@ function Card() {
                   </GridColumn>
                   <GridColumn width={10}>
                     <p>News Story Headline Crap</p>
+                    <p>     Maybe summary, maybe not</p>
                   </GridColumn>
               </GridRow>
           </Grid> 
