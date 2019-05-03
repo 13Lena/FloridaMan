@@ -28,7 +28,7 @@ class Nav extends Component {
       //     <Link to="/saved">Saved</Link>
       // </nav>
       <>
-        <Menu>
+        <Menu inverted>
 
           <Menu.Item
             name='home'
@@ -68,15 +68,15 @@ class Nav extends Component {
           <Menu.Item>
             < Input placeholder='Search...' />
           </Menu.Item>
-          <Modal size={'mini'} trigger={
-            <Menu.Item
-              name='login'
+            <Modal size={'mini'} trigger={
+              <Menu.Item
+                name='login'
               // active={activeItem === 'login'}
-              onClick={this.handleItemClick}
-            >
-              Login
-        </Menu.Item>
-          }  onClose={this.close} open={this.state.open}>
+                onClick={this.handleItemClick}
+                >
+                Login
+               </Menu.Item>
+              }  onClose={this.close} open={this.state.open}>
             <Login />
           </Modal>
         </Menu>
