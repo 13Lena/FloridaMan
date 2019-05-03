@@ -68,7 +68,7 @@ class Nav extends Component {
           <Menu.Item>
             < Input placeholder='Search...' />
           </Menu.Item>
-            <Modal size={'mini'} trigger={
+            <Modal size={'tiny'} trigger={
               <Menu.Item
                 name='login'
               // active={activeItem === 'login'}
