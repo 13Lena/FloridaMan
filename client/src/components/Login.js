@@ -1,16 +1,25 @@
 import React from "react";
+
 // import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Modal, Button, Form,  } from "semantic-ui-react";
 
 
 function Login(props) {
     return (
+
         <div style={{padding: "10px"}}>
             <h2 className="loginTitle"> Please Login</h2>
             <hr />
             <Form>
                 {/* <FormGroup>
+
+        <div>
+            <Modal.Header className="loginTitle">Login</Modal.Header>
+            <hr />
+                <Modal.Content>
+
                     <Label for="email">Email</Label>
                     <Input 
                         type="text" 
@@ -20,19 +29,19 @@ function Login(props) {
                         value={props.email} 
                         onChange={props.handleInputChange} 
                     />
-                </FormGroup>
-                <FormGroup>
+                </Modal.Content>
+                <Modal.Content>
                     <Label for="password">Password</Label>
                     <Input 
                        
                     />
-                </FormGroup>
+                </Modal.Content>
                 <Modal.Actions>
                     <Button onClick={props.handleLogin} color="primary" block>Login</Button>
                     <p className="signupLink">
-                        <Router>
+                        {/* <Router>
                             <Link to="/signup">Don't have an account?  Sign up here</Link>
-                        </Router>
+                        </Router> */}
                     </p>
                 </Modal.Actions> */}
                 
@@ -72,7 +81,6 @@ function Login(props) {
                         </Router>
                     </p>
                 </Modal.Actions>
-            </Form>
         </div>
     )
 };

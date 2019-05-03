@@ -3,9 +3,9 @@ const LocalStrategy = require("passport-local").Strategy;
 const db = require("../models");
 
 passport.use(new LocalStrategy(
-    function (username, password, done) {
+    function (email, password, done) {
         db.User.findOne({
-            username: username
+            email: email
         }, function (err, user) {
             if (err) {
                 console.log("something went wrong\n", err);
