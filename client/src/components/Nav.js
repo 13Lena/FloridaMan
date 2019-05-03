@@ -8,50 +8,64 @@ class Nav extends Component {
     open: false
   }
 
-  handleItemClick = () => {
-    this.setState({ open: true })
+  closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
+    this.setState({ closeOnEscape, closeOnDimmerClick, open: true })
   }
 
-render() {
-    return(
-        // <nav>
-        //     <h2>Florida Man</h2>
-        //     <Link to="/">Main</Link>
-        //     <Link to="/saved">Saved</Link>
-        // </nav>
+  show = () => this.setState({ open: true })
+  close = () => this.setState({ open: false })
+
+  handleItemClick = () => {
+    // this.setState({ open: true });
+    this.show();
+  }
+
+  render() {
+    return (
+      // <nav>
+      //     <h2>Florida Man</h2>
+      //     <Link to="/">Main</Link>
+      //     <Link to="/saved">Saved</Link>
+      // </nav>
+      <>
         <Menu>
 
-        <Menu.Item
-          name='home'
-        //   active={activeItem === 'home'}
-        //   onClick={this.handleItemClick}
-        >
-          Florida Man
+          <Menu.Item
+            name='home'
+          //   active={activeItem === 'home'}
+          //   onClick={this.handleItemClick}
+          >
+            Florida Man
         </Menu.Item>
 
-        <Dropdown item text='Categories'>
-          <Dropdown.Menu>
-            <Dropdown.Item  text='WTF' />
-            <Dropdown.Item  text='Meth' />
-            <Dropdown.Item  text='NSFW' />
-          </Dropdown.Menu>
-        </Dropdown>
+          <Dropdown item text='Categories'>
+            <Dropdown.Menu>
+              <Dropdown.Item text='WTF' />
+              <Dropdown.Item text='Meth' />
+              <Dropdown.Item text='NSFW' />
+            </Dropdown.Menu>
+          </Dropdown>
 
-        <Menu.Item>
-        < Input placeholder='Search...' />
+          <Menu.Item>
+            < Input placeholder='Search...' />
+          </Menu.Item>
+          <Modal size={'mini'} trigger={
+            <Menu.Item
+              name='login'
+              // active={activeItem === 'login'}
+              onClick={this.handleItemClick}
+            >
+              Login
         </Menu.Item>
+          }  onClose={this.close} open={this.state.open}>
+            <Login />
+          </Modal>
+        </Menu>
 
-        <Menu.Item
-          name='login'
-          // active={activeItem === 'login'}
-          onClick={this.handleItemClick}
-        >
-        <LoginModal open={this.state.open}/>
-          Login
-        </Menu.Item>
-      </Menu>
+        {/* <LoginModal  opener={this.state.open} /> */}
+      </>
     );
-}
+  }
 }
 
 export default Nav;

@@ -6,14 +6,14 @@ import Login from "./Login";
 
 class LoginModal extends Component {
     state = { open: false }
-    show = () => this.setState({ open: true })
     close = () => this.setState({ open: false })
+    show = () => this.setState({ open: true })
 
     render() {
-        console.log(this.props);
+        console.log(this.props.opener);
         return (
             <div>
-                <Modal size={'mini'} open={this.props.open} onClose={this.close}>
+                <Modal size={'mini'} open={this.state.open} onClose={this.props.open}>
                     <Login />
                 </Modal>
             </div>
