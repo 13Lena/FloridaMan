@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Dropdown, Input, Menu, Modal } from 'semantic-ui-react';
-import Login from "./Login";
+import { Dropdown, Input, Menu } from 'semantic-ui-react';
 import LoginModal from "./Modal";
+import SignupModal from "./Signup";
 
 class Nav extends Component {
   state = {
@@ -12,14 +12,14 @@ class Nav extends Component {
     this.setState({ open: true })
   }
 
-render() {
-    return(
-        // <nav>
-        //     <h2>Florida Man</h2>
-        //     <Link to="/">Main</Link>
-        //     <Link to="/saved">Saved</Link>
-        // </nav>
-        <Menu>
+  render() {
+    return (
+      // <nav>
+      //     <h2>Florida Man</h2>
+      //     <Link to="/">Main</Link>
+      //     <Link to="/saved">Saved</Link>
+      // </nav>
+      <Menu>
 
         <Menu.Item
           name='home'
@@ -31,14 +31,14 @@ render() {
 
         <Dropdown item text='Categories'>
           <Dropdown.Menu>
-            <Dropdown.Item  text='WTF' />
-            <Dropdown.Item  text='Meth' />
-            <Dropdown.Item  text='NSFW' />
+            <Dropdown.Item text='WTF' />
+            <Dropdown.Item text='Meth' />
+            <Dropdown.Item text='NSFW' />
           </Dropdown.Menu>
         </Dropdown>
 
         <Menu.Item>
-        < Input placeholder='Search...' />
+          < Input placeholder='Search...' />
         </Menu.Item>
 
         <Menu.Item
@@ -46,12 +46,13 @@ render() {
           // active={activeItem === 'login'}
           onClick={this.handleItemClick}
         >
-        <LoginModal open={this.state.open}/>
+          <LoginModal open={this.state.open} />
           Login
+          <SignupModal open={this.state.close} />
         </Menu.Item>
       </Menu>
     );
-}
+  }
 }
 
 export default Nav;

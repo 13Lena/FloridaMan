@@ -9,7 +9,10 @@ class Signup extends Component {
         validPassword: false,
         confirmPassword: false,
         password: "",
-        passwordMessage: ""
+        passwordMessage: "",
+        open: false,
+        // show = () => this.setState({ open: true }),
+        // close = () => this.setState({ open: false })
     }
 
     componentDidMount() {
@@ -50,9 +53,9 @@ class Signup extends Component {
         }
     }
 
-    // checks is password meets regex test (at least 8 letters, 1 capital and 1 number)
+    // checks is password meets regex test (at least 6 letters, 1 capital and 1 number)
     validatePassword = () => {
-        let strongPassword = new RegExp(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/);
+        let strongPassword = new RegExp(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})/);
         let valid = strongPassword.test(this.props.password);
         if (!this.state.validPassword && valid) {
             this.setState({
@@ -82,7 +85,7 @@ class Signup extends Component {
 
     // displays the password message if it exists
     passwordMessage = () => {
-        let message = "at least 8 letters, 1 capital & 1 number"
+        let message = "at least 6 letters, 1 capital & 1 number"
         if (this.props.password !== "" && !this.state.validPassword && this.state.passwordMessage !== message) {
             this.setState({
                 passwordMessage: message
@@ -100,10 +103,11 @@ class Signup extends Component {
         }
     }
 
+
     render() {
         return (
             <div>
-                <Modal size={mini} open={open} onClose={this.close}>
+                <Modal size={"mini"} open={this.props.open} onClose={this.props.close}>
                     <h2 className="loginTitle">Signup</h2>
                     <hr />
                     {this.props.message ? (
