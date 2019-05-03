@@ -30,7 +30,7 @@ class Nav extends Component {
   render() {
     return (
       <>
-        <Menu>
+        <Menu inverted>
 
           <Menu.Item
             name='home'
@@ -64,9 +64,9 @@ class Nav extends Component {
           </Dropdown>
 
           <Menu.Item>
+
         < Input placeholder='Search...' />
         </Menu.Item>
-          
           <Modal size={'mini'} trigger={
             <Menu.Item
               name='login'
@@ -76,6 +76,7 @@ class Nav extends Component {
               Login
             </Menu.Item>
           } onClose={this.close} open={this.state.loginOpen}>
+
             <Login />
           </Modal>
           <>
