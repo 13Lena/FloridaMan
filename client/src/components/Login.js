@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { ModalActions, Modal } from "semantic-ui-react";
+import { Modal } from "semantic-ui-react";
 
 function Login(props) {
     return (
@@ -11,11 +11,25 @@ function Login(props) {
             <Form>
                 <FormGroup>
                     <Label for="email">Email</Label>
-                    <Input type="text" email="email" id="email" placeholder="email" value={props.email} onChange={props.handleInputChange} />
+                    <Input 
+                        type="text" 
+                        email="email" 
+                        id="email" 
+                        placeholder="email" 
+                        value={props.email} 
+                        onChange={props.handleInputChange} 
+                    />
                 </FormGroup>
                 <FormGroup>
                     <Label for="password">Password</Label>
-                    <Input type="password" name="password" id="password" placeholder="password" value={props.password} onChange={props.handleInputChange} />
+                    <Input 
+                        type="password" 
+                        name="password" 
+                        id="password" 
+                        placeholder="password" 
+                        value={props.password} 
+                        onChange={props.handleInputChange} 
+                    />
                 </FormGroup>
                 <Modal.Actions>
                     <Button onClick={props.handleLogin} color="primary" block>Login</Button>
@@ -26,7 +40,6 @@ function Login(props) {
                     </p>
                 </Modal.Actions>
             </Form>
-
         </div>
     )
 };

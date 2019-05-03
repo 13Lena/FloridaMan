@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown, Input, Menu, Modal } from 'semantic-ui-react';
+import SignupModal from "./Signup";
 import Login from "./Login";
-import LoginModal from "./Modal";
 
 class Nav extends Component {
   state = {
