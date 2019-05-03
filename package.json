@@ -28,6 +28,7 @@
     "morgan": "^1.9.1",
     "nightmare": "^3.0.2",
     "passport": "^0.4.0",
-    "passport-session": "^1.0.2"
+    "passport-session": "^1.0.2",
+    "vo": "^4.0.2"
   }
 }
