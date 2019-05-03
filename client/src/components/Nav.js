@@ -1,15 +1,23 @@
 import React, { Component } from "react";
-import { Dropdown, Input, Menu } from 'semantic-ui-react';
-import LoginModal from "./Modal";
+import { Dropdown, Input, Menu, Modal } from 'semantic-ui-react';
 import SignupModal from "./Signup";
+import Login from "./Login";
 
 class Nav extends Component {
   state = {
     open: false
   }
 
+  closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
+    this.setState({ closeOnEscape, closeOnDimmerClick, open: true })
+  }
+
+  show = () => this.setState({ open: true })
+  close = () => this.setState({ open: false })
+
   handleItemClick = () => {
-    this.setState({ open: true })
+    // this.setState({ open: true });
+    this.show();
   }
 
   render() {
@@ -19,38 +27,43 @@ class Nav extends Component {
       //     <Link to="/">Main</Link>
       //     <Link to="/saved">Saved</Link>
       // </nav>
-      <Menu>
+      <>
+        <Menu>
 
-        <Menu.Item
-          name='home'
-        //   active={activeItem === 'home'}
-        //   onClick={this.handleItemClick}
-        >
-          Florida Man
+          <Menu.Item
+            name='home'
+          //   active={activeItem === 'home'}
+          //   onClick={this.handleItemClick}
+          >
+            Florida Man
         </Menu.Item>
 
-        <Dropdown item text='Categories'>
-          <Dropdown.Menu>
-            <Dropdown.Item text='WTF' />
-            <Dropdown.Item text='Meth' />
-            <Dropdown.Item text='NSFW' />
-          </Dropdown.Menu>
-        </Dropdown>
+          <Dropdown item text='Categories'>
+            <Dropdown.Menu>
+              <Dropdown.Item text='WTF' />
+              <Dropdown.Item text='Meth' />
+              <Dropdown.Item text='NSFW' />
+            </Dropdown.Menu>
+          </Dropdown>
 
-        <Menu.Item>
-          < Input placeholder='Search...' />
+          <Menu.Item>
+            < Input placeholder='Search...' />
+          </Menu.Item>
+          <Modal size={'mini'} trigger={
+            <Menu.Item
+              name='login'
+              // active={activeItem === 'login'}
+              onClick={this.handleItemClick}
+            >
+              Login
         </Menu.Item>
+          }  onClose={this.close} open={this.state.open}>
+            <Login />
+          </Modal>
+        </Menu>
 
-        <Menu.Item
-          name='login'
-          // active={activeItem === 'login'}
-          onClick={this.handleItemClick}
-        >
-          <LoginModal open={this.state.open} />
-          Login
-          <SignupModal open={this.state.close} />
-        </Menu.Item>
-      </Menu>
+        {/* <LoginModal  opener={this.state.open} /> */}
+      </>
     );
   }
 }
