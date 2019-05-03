@@ -6,13 +6,12 @@ const routes = require("./routes");
 const session = require("express-session");
 const passport = require("passport");
 const logger = require("morgan");
-// const flash = require('connect-flash');
+const flash = require('connect-flash');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger("dev"));
-// app.use(flash())
-// app.use(express.static("public"));
+app.use(flash())
 app.use(session({
     secret: "keyboard cat",
     resave: false,
@@ -33,10 +32,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/floridaMan",
 
  function(err) {
     if (err) throw err;
-    console.log(`🐆  mongoose connection successful 🐆`.yellow);
+    console.log(`mongoose connection successful`);
     app.listen(PORT, (err)=> {
         if (err) throw err;
-        console.log(`🌎  connected on port ${PORT} 🌍`.cyan)
+        console.log(`🌎 connected on port ${PORT} 🌍`)
     });
 });
 

@@ -7,10 +7,9 @@ import { Modal } from "semantic-ui-react";
 function Login(props) {
     return (
         <div>
-            <h2 className="loginTitle">Login</h2>
+            <Modal.Header className="loginTitle">Login</Modal.Header>
             <hr />
-            <Form>
-                <FormGroup>
+                <Modal.Content>
                     <Label for="email">Email</Label>
                     <Input 
                         type="text" 
@@ -20,8 +19,8 @@ function Login(props) {
                         value={props.email} 
                         onChange={props.handleInputChange} 
                     />
-                </FormGroup>
-                <FormGroup>
+                </Modal.Content>
+                <Modal.Content>
                     <Label for="password">Password</Label>
                     <Input 
                         type="password" 
@@ -31,16 +30,15 @@ function Login(props) {
                         value={props.password} 
                         onChange={props.handleInputChange} 
                     />
-                </FormGroup>
+                </Modal.Content>
                 <Modal.Actions>
                     <Button onClick={props.handleLogin} color="primary" block>Login</Button>
                     <p className="signupLink">
-                        <Router>
+                        {/* <Router>
                             <Link to="/signup">Don't have an account?  Sign up here</Link>
-                        </Router>
+                        </Router> */}
                     </p>
                 </Modal.Actions>
-            </Form>
         </div>
     )
 };
