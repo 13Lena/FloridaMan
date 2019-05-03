@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "./components/Nav";
+import Results from "./components/Results"
 import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -13,6 +14,7 @@ import UserProvider from "./context";
 
 function App() {
   return (
+
     // <UserProvider>
       <Router>
         <div>
@@ -21,6 +23,7 @@ function App() {
             <Switch>
               {/* <Route exact path="/" component={Main} />  */}
             </Switch>
+            <Results />
           </Container>
         </div>
       </Router>
