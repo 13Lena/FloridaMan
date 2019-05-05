@@ -13,7 +13,6 @@ class Main extends Component {
         API.getArticles()
             .then(res => {
                 const dataToBeMapped = [];
-
                 for (let i = 0; i < res.data.length; i+=2) {
                     let tempObject = {left: res.data[i], right: res.data[i+1], key: i}
                     dataToBeMapped.push(tempObject)
