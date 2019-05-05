@@ -1,11 +1,9 @@
 import React from "react";
 import Nav from "./components/Nav";
-import Results from "./components/Results"
-import 'semantic-ui-css/semantic.min.css'
+import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-// import Main from "./pages/Main";
-// import Saved from "./pages/Saved";
+import Main from "./pages/Main";
+import Favorites from "./pages/Favorites";
 // import Auth from "./pages/Auth";
 // import NoMatch from "./pages/NoMatch";
 
@@ -21,9 +19,9 @@ function App() {
           <Nav />
           <Container>
             <Switch>
-              {/* <Route exact path="/" component={Main} />  */}
+              <Route exact path="/" component={Main} /> 
+              <Route exact path="/favorites" component={Favorites} /> 
             </Switch>
-            <Results />
           </Container>
         </div>
       </Router>

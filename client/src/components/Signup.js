@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, FormText, Alert } from 'reactstrap';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { ModalActions } from "semantic-ui-react";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Signup extends Component {
     state = {

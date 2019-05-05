@@ -4,7 +4,7 @@ export default {
     getArticles: () => {
         return axios.get("/api/articles");
     },
-    getArticles:(id) => {
+    getOneArticle:(id) => {
         return axios.get("/api/articles/" + id);
     },
     // searchAr: (title) => {

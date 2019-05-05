@@ -25,14 +25,15 @@ class Card extends Component {
           <Grid>
               <GridRow>
                   <GridColumn width={6}>
-                    <Image src="https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555426693/shape/mentalfloss/rickrollheader.png" />
+                    <Image src={this.props.imgUrl} />
                   </GridColumn>
                   <GridColumn width={10}>
-                    <p>News Story Headline Crap</p>
-                    <p>     Maybe summary, maybe not</p>
+                    <h3>{this.props.headline}</h3>
+                    {/* <p>News Story Headline Crap</p>
+                    <p>     Maybe summary, maybe not</p> */}
                     <Modal 
-                      size={'medium'} 
-                      trigger={<Button inverted color='teal' animated='fade'onClick={this.handleItemClick}>
+                      size={'large'} 
+                      trigger={<Button inverted color='teal' animated='fade' onClick={this.handleItemClick}>
                       <Button.Content visible>Read More</Button.Content>
                       <Button.Content hidden>
                         <Icon name='eye' />

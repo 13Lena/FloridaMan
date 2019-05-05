@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Modal } from "semantic-ui-react";
 
