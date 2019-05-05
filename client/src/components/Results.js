@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Card from "./Card"
-import { Grid, Image, GridColumn } from 'semantic-ui-react'
+import { Grid, GridColumn } from 'semantic-ui-react'
 // import API from "../utils/API";
 
 

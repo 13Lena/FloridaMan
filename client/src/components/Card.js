@@ -32,13 +32,16 @@ class Card extends Component {
                     {/* <p>News Story Headline Crap</p>
                     <p>     Maybe summary, maybe not</p> */}
                     <Modal 
-                      size={'large'} 
-                      trigger={<Button inverted color='teal' animated='fade' onClick={this.handleItemClick}>
-                      <Button.Content visible>Read More</Button.Content>
-                      <Button.Content hidden>
-                        <Icon name='eye' />
-                     </Button.Content>
-                    </Button>} 
+                      size={'medium'} 
+                      trigger={<Button 
+                                  inverted color='teal' 
+                                  animated='fade'
+                                  onClick={this.handleItemClick}>
+                                    <Button.Content visible>Read More</Button.Content>
+                                    <Button.Content hidden>
+                                      <Icon name='eye' />
+                                    </Button.Content>
+                                </Button>} 
                       onClose={this.close} 
                       open={this.state.open}>
                         <ArticlePop />
