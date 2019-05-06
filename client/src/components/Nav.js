@@ -81,7 +81,7 @@ class Nav extends Component {
             <Login />
           </Modal>
           <>
-          <Modal size={'mini'} trigger={
+          <Modal size={'tiny'} trigger={
             <Menu.Item
               name='signup'
               onClick={this.handleItemClick2}
