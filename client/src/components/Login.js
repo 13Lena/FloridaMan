@@ -1,15 +1,13 @@
 import React from "react";
-
 // import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Modal, Button, Form,  } from "semantic-ui-react";
+import { Modal, Button, Form } from "semantic-ui-react";
 
 
 function Login(props) {
     return (
 
-        <div style={{padding: "10px"}}>
+        <div style={{ padding: "10px" }}>
             <h2 className="loginTitle"> Please Login</h2>
             <hr />
             <Form>
@@ -42,37 +40,37 @@ function Login(props) {
                         {/* <Router>
                             <Link to="/signup">Don't have an account?  Sign up here</Link>
                         </Router> */}
-                    </p>
-                </Modal.Actions> */}
-                
+                {/* </p> */}
+                {/* </Modal.Actions> */}
+
                 <Form.Field>
                     <label>Email</label>
-                    <input 
-                        placeholder='Email' 
-                        type='text' 
-                        email='email' 
-                        id='email'  
-                        value={props.email} 
+                    <input
+                        placeholder='Email'
+                        type='text'
+                        email='email'
+                        id='email'
+                        value={props.email}
                         onChange={props.handleInputChange}
-                        />
+                    />
                 </Form.Field>
                 <Form.Field>
                     <label>Password</label>
-                    <input 
-                        placeholder='Password' 
+                    <input
+                        placeholder='Password'
                         type='password'
-                        name='password' 
+                        name='password'
                         id='password'
-                        value={props.password} 
-                        onChange={props.handleInputChange} 
-                        />
+                        value={props.password}
+                        onChange={props.handleInputChange}
+                    />
                 </Form.Field>
                 <Modal.Actions>
-                    <Button 
+                    <Button
                         type='login'
-                        onClick={props.handleLogin} 
+                        onClick={props.handleLogin}
                         color='teal'
-                        >
+                    >
                         Login
                     </Button>
                     <p className='signupLink'>
@@ -81,6 +79,7 @@ function Login(props) {
                         </Router>
                     </p>
                 </Modal.Actions>
+            </Form>
         </div>
     )
 };
