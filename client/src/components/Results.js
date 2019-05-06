@@ -22,10 +22,10 @@ class Results extends Component {
                 <Grid.Row key={data.key}>
                     <GridColumn width={1}></GridColumn>
                     <Grid.Column width={7}>
-                        <Card tags={left.meta_tags} imgUrl={left.image_url} headline={left.headline} />
+                        <Card tags={left.meta_tags} imgUrl={left.image_url} headline={left.headline} body={left.body} upvote={left.upvote} downvote={left.downvote}/>
                     </Grid.Column>
                     <Grid.Column  width={7}>
-                        <Card tags={right.meta_tags} imgUrl={right.image_url} headline={right.headline} />
+                        <Card tags={right.meta_tags} imgUrl={right.image_url} headline={right.headline} body={right.body} upvote={right.upvote} downvote={right.downvote} />
                     </Grid.Column>
                     <GridColumn width={1}></GridColumn>
                 </Grid.Row>
