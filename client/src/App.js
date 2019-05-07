@@ -7,7 +7,6 @@ import Favorites from "./pages/Favorites";
 import Auth from "./pages/Auth";
 // import NoMatch from "./pages/NoMatch";
 
-// import { Container } from 'reactstrap';
 import UserProvider from "./context";
 
 class App extends Component {

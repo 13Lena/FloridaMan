@@ -29,8 +29,7 @@ class Card extends Component {
                   </GridColumn>
                   <GridColumn width={10}>
                     <h3>{this.props.headline}</h3>
-                    {/* <p>News Story Headline Crap</p>
-                    <p>     Maybe summary, maybe not</p> */}
+                    
                     <Modal 
                       size={'small'} 
                       trigger={<Button 
@@ -44,7 +43,13 @@ class Card extends Component {
                                 </Button>} 
                       onClose={this.close} 
                       open={this.state.open}>
-                        <ArticlePop up />
+                        <ArticlePop 
+                        imgUrl={this.props.imgUrl}
+                        headline={this.props.headline}
+                        body={this.props.body}
+                        upvote={this.props.upvote}
+                        downvote={this.props.downvote}
+                        />
                      </Modal>
                   </GridColumn>
               </GridRow>

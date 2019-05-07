@@ -81,7 +81,7 @@ class Nav extends Component {
             <Login />
           </Modal>
           <>
-          <Modal size={"mini"} trigger={
+          <Modal size={'tiny'} trigger={
             <Menu.Item
               name="signup"
               onClick={this.handleItemClick2}
@@ -92,6 +92,13 @@ class Nav extends Component {
             <Signup />
           </Modal>
           </>
+          <Menu.Item
+            name='favorites'
+          //   active={activeItem === 'home'}
+          //   onClick={this.handleItemClick}
+          >
+            Favorites
+          </Menu.Item>
         </Menu>
 
         {/* <LoginModal  opener={this.state.open} /> */}

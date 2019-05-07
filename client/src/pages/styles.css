@@ -1,0 +1,13 @@
+body {
+    background-image: url("../images/welcome-to-florida-1.jpg");
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.Header {
+    opacity: .2;
+}
