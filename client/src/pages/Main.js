@@ -25,6 +25,7 @@ class Main extends Component {
     }
 
     render() {
+        // console.log(this.props.category)
         return(
             <Results articleData={this.state.articleData} />
         );

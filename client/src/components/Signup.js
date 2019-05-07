@@ -114,11 +114,11 @@ class Signup extends Component {
                         <input
                             placeholder='Email'
                             type='text'
-                            email='email'
+                            name='email'
                             id='email'
-                            // value={this.props.email}        
-                            // onChange={this.props.handleInputChange}
-                            // valid={this.state.validEmail}
+                            value={this.props.email}        
+                            onChange={this.props.handleInputChange}
+                            valid={this.state.validEmail}
                         />
                     </Form.Field>
 
@@ -129,9 +129,9 @@ class Signup extends Component {
                             type='password'
                             name='password'
                             id='password'
-                            // value={this.props.password}
-                            // onChange={this.props.handleInputChange}
-                            // valid={this.state.validPassword}
+                            value={this.props.password}
+                            onChange={this.props.handleInputChange}
+                            valid={this.state.validPassword}
                         />
                         {/* <FormText>{this.state.passwordMessage}</FormText> */}
                     </Form.Field>
@@ -152,7 +152,7 @@ class Signup extends Component {
                     <Modal.Actions>
                         <Button
                             type='signup'
-                            // onClick={props.handleLogin}
+                            onClick={this.props.handleSignup}
                             color='teal'
                         >
                             Signup
