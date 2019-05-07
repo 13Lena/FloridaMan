@@ -18,8 +18,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   updateUpVote: function (req, res){
+    // console.log(req.body);
     db.Article
-    .findOneAndUpdate({ _id: req.params.id }, req.body)
+    .findOneAndUpdate({ _id: req.params.id }, req.body, {new:true})
     .then(dbArticle => res.json(dbArticle))
     .catch(err => res.status(422).json(err));
   },
