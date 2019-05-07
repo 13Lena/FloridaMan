@@ -11,13 +11,13 @@ export default {
     //     return axios.post("/search", {title: title});
     // },
     favorite: (id) => {
-        return axios.post("/api/users", id);
+        return axios.post("/api/users/" + id);
     },
-    upVote: (id)=>{
-        return axios.post("api/articles/vote", id);
+    upVote: (id, count)=>{
+        return axios.put("/api/articles/vote/"  + id, count);
     },
-    downVote: (id)=>{
-        return axios.post("api/articles/vote", id);
+    downVote: (id, count)=>{
+        return axios.put("/api/articles/vote/" + id, count);
     }
 
 }

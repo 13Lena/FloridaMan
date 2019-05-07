@@ -5,9 +5,9 @@ router
   .route("/")
   .get(articlesController.findAll);
 router
-  .route("/vote")
-  .post(articlesController.updateUpVote)
-  .post(articlesController.updateDownVote);
+  .route("/vote/:id")
+  .put(articlesController.updateUpVote)
+  .put(articlesController.updateDownVote);
 
 // Matches with "/api/books/:id"
 router

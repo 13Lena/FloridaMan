@@ -5,6 +5,8 @@ import { Modal } from "semantic-ui-react";
 
 
 function ArticlePop (props) {
+
+
     return(
 
             <div style={{padding: "15px"}}>
@@ -20,7 +22,7 @@ function ArticlePop (props) {
                     color='blue'
                     content='Upvote'
                     icon='thumbs up'
-                    label={{ basic: true, color: 'blue', pointing: 'left', content:'314'}}>
+                    label={{ basic: true, color: 'blue', pointing: 'left', content:'500'}}>
                   </Button>
                   <Button
                     color='red'
