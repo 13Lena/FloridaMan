@@ -1,6 +1,6 @@
 
 module.exports = {
-    Users: require("./Users"),
+  User: require("./Users"),
     Article: require("./Article")
   };
   

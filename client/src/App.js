@@ -17,18 +17,13 @@ class App extends Component {
   }
 
   handleMenuClick = (event) => {
-    // console.log(this.state.category)
-        // if ((category && this.state.clicked === false)) {
-        //   alert("hi")
         const category = event.target.innerText;
       this.setState({
         category: category
       });
   
-    // }
     setTimeout(() => console.log(this.state.category), 50)
-    // console.log(category)
-  }
+ }
 
 
 

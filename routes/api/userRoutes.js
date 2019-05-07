@@ -15,14 +15,17 @@ router.post("/login", passport.authenticate("local", {
 });
 
 router.post("/signup", function(req, res, next) {
-  console.log(req.body.email)
-  let email = req.body.email;
       db.User.find({email: req.body.email}, function(err, email) {
-        if (err) throw err;
-        if (email) {
-          return res.json("email is already in use") 
-        }
-        if (!useremail) {
+        console.log("email: ",email)
+        console.log("length: ",email.length)
+
+        // if (err) throw err;
+        // if (email) {
+        //   return res.json("email is already in use") 
+        //   console.log("user exists...?")
+        // }
+        // if (!email.length) {
+          console.log("making new user")
           let newUser = new db.User({
             email: req.body.email,
             password: req.body.password
@@ -31,9 +34,9 @@ router.post("/signup", function(req, res, next) {
           newUser.save(function(err) {
             if (err) throw err;
             console.log("user saved!");
-            res.redirect(307, "/api/users/login")
+            res.redirect(307, "/api/user/login")
           });
-        }
+        // }
       })     
   
   })

@@ -11,7 +11,7 @@ export default {
     //     return axios.post("/search", {title: title});
     // },
     favorite: (id) => {
-        return axios.post("/api/users", id);
+        return axios.post("/api/user", id);
     },
     upVote: (id)=>{
         return axios.post("api/articles/vote", id);
@@ -20,8 +20,12 @@ export default {
         return axios.post("api/articles/vote", id);
     },
 
+    login: function(loginInfo) {
+        return axios.post("/api/user/login", loginInfo);
+      },
+
     signup: signupInfo => {
-        return axios.post("/api/users/signup", signupInfo);
+        return axios.post("/api/user/signup", signupInfo);
     }
 
 }
