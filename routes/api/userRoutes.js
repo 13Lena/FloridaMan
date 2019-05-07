@@ -16,6 +16,8 @@ router.post("/login", passport.authenticate("local", {
 
 router.post("/signup", function(req, res, next) {
   db.User.findOne({email: req.body.email}, function(err, user) {
+    console.log("user already exists")
+
     if (err) throw err;
     if (user) {
       console.log("user already exists")

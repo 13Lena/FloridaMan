@@ -9,7 +9,7 @@ function ArticlePop () {
 
             <div style={{padding: "15px"}}>
                 <Modal.Content image>
-                  <Image wrapped size='medium' src='https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555349001/shape/mentalfloss/screen_shot_2016-02-04_at_4.43.43_pm.png' />
+                  <Image wrapped size='small' src='https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555349001/shape/mentalfloss/screen_shot_2016-02-04_at_4.43.43_pm.png' />
                   <Modal.Description>
                     <Header>Headline will go here</Header>
                     <p>This is an example of expanded content that will cause the modal's dimmer to scroll</p>

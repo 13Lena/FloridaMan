@@ -32,7 +32,7 @@ class Card extends Component {
                     {/* <p>News Story Headline Crap</p>
                     <p>     Maybe summary, maybe not</p> */}
                     <Modal 
-                      size={'medium'} 
+                      size={'small'} 
                       trigger={<Button 
                                   inverted color='teal' 
                                   animated='fade'
@@ -44,7 +44,7 @@ class Card extends Component {
                                 </Button>} 
                       onClose={this.close} 
                       open={this.state.open}>
-                        <ArticlePop />
+                        <ArticlePop up />
                      </Modal>
                   </GridColumn>
               </GridRow>

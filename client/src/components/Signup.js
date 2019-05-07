@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input, FormText, Alert } from 'reactstrap';
+import { FormText,  } from 'reactstrap';
 // import { Link } from "react-router-dom";
 import { ModalActions } from "semantic-ui-react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Form } from "semantic-ui-react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Signup extends Component {
     state = {
@@ -110,30 +111,30 @@ class Signup extends Component {
                 <h2 className="loginTitle">Signup</h2>
                 <hr />
                 <Form>
-                    <FormGroup>
-                        <Label for="email">Email</Label>
-                        <Input type="email" name="email" id="email" placeholder="email@email.com" value={this.props.email} onChange={this.props.handleInputChange} valid={this.state.validEmail} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input type="password" name="password" id="password" placeholder="password" value={this.props.password} onChange={this.props.handleInputChange} valid={this.state.validPassword} />
-                        <FormText>{this.state.passwordMessage}</FormText>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="confirmPassword">Confirm Password</Label>
-                        <Input type="password" name="password" id="confirmPassword" placeholder="confirm password" value={this.state.password} onChange={this.handleInputChange} valid={this.state.confirmPassword} />
-                    </FormGroup>
-                    <ModalActions>
+                    <Form.Field>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="email@email.com" value={this.props.email} onChange={this.props.handleInputChange} valid={this.state.validEmail} />
+                    </Form.Field>
+                    <Form.Field>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="password" value={this.props.password} onChange={this.props.handleInputChange} valid={this.state.validPassword} />
+                        {/* <FormText>{this.state.passwordMessage}</FormText> */}
+                    </Form.Field>
+                    <Form.Field>
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" name="password" id="confirmPassword" placeholder="confirm password" value={this.state.password} onChange={this.handleInputChange} valid={this.state.confirmPassword} />
+                    </Form.Field>
+                    {/* <ModalActions> */}
                         {/* if all fields are valid, allow the user to submit the form */}
-                        {(this.state.validEmail && this.state.validPassword && this.state.confirmPassword) ? (
-                            <Button onClick={this.props.handleSignup} color="success" block>Signup</Button>
+                        {(this.state.validPassword && this.state.confirmPassword) ? (
+                            <Button onClick={this.props.handleSignup} block>Signup</Button>
                         ) : (
-                                <Button onClick={this.props.handleSignup} color="danger" block disabled>Signup</Button>
+                                <Button onClick={this.props.handleSignup} block disabled>Signup</Button>
                             )}
                         {/* <p className="signupLink">
                             <Link to="/login">Already have an account?  Sign in here</Link>
                         </p> */}
-                    </ModalActions>
+                    {/* </ModalActions> */}
                 </Form>
             </div>
         );
