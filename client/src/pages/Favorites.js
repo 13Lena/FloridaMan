@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Results from "../components/Results";
 import API from "../utils/API"
-import Background from "../images/welcome-to-florida-1.jpg"
 import { Grid, GridColumn, Header, Image } from "semantic-ui-react";
 import Card from "../components/Card"
 import "./styles.css"
