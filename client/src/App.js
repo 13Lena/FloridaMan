@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main";
 import Favorites from "./pages/Favorites";
 import Login from "./pages/Login"
-// import Auth from "./pages/Auth";
 import Auth from "./pages/Auth";
 // import NoMatch from "./pages/NoMatch";
 
