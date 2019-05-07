@@ -8,6 +8,7 @@ import Card from "../components/Card"
 import "./styles.css"
 
 
+
 class Favorites extends Component {
 
     // state = {
@@ -56,4 +57,5 @@ class Favorites extends Component {
 
 }
 // <Results articleData={this.state.articleData} />
+
 export default Favorites;

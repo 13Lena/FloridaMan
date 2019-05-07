@@ -9,6 +9,7 @@ function ArticlePop (props) {
 
             <div style={{padding: "15px"}}>
                 <Modal.Content image>
+
                   <Image wrapped size='large' src='https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555349001/shape/mentalfloss/screen_shot_2016-02-04_at_4.43.43_pm.png' />
                   <Modal.Description>
                     <Header>{props.headline}</Header>
@@ -17,6 +18,7 @@ function ArticlePop (props) {
                 </Modal.Content>
                 <Modal.Actions>
                   <Button 
+
                     color='teal'
                     content='Like'
                     icon='arrow circle up'
@@ -27,6 +29,7 @@ function ArticlePop (props) {
                     content='Dislike'
                     icon='arrow circle down'
                     label={{as: 'a', basic:'true', color: 'orange', pointing: 'left',content: '974'}}>
+
                   </Button>
                 </Modal.Actions>
             </div> 
