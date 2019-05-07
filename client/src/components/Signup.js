@@ -109,10 +109,6 @@ class Signup extends Component {
                 <h2 className="signupTitle"> Please Signup</h2>
                 <hr />
                 <Form>
-                    {/* <FormGroup>
-                        <Label for="email">Email</Label>
-                        <Input type="email" name="email" id="email" placeholder="email@email.com" value={this.props.email} onChange={this.props.handleInputChange} valid={this.state.validEmail} />
-                    </FormGroup> */}
                     <Form.Field>
                         <label>Email</label>
                         <input
@@ -125,11 +121,7 @@ class Signup extends Component {
                             // valid={this.state.validEmail}
                         />
                     </Form.Field>
-                    {/* <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input type="password" name="password" id="password" placeholder="password" value={this.props.password} onChange={this.props.handleInputChange} valid={this.state.validPassword} />
-                        <FormText>{this.state.passwordMessage}</FormText>
-                    </FormGroup> */}
+
                     <Form.Field>
                         <label>Password</label>
                         <input
@@ -143,10 +135,7 @@ class Signup extends Component {
                         />
                         {/* <FormText>{this.state.passwordMessage}</FormText> */}
                     </Form.Field>
-                    {/* <FormGroup>
-                        <Label for="confirmPassword">Confirm Password</Label>
-                        <Input type="password" name="password" id="confirmPassword" placeholder="confirm password" value={this.state.password} onChange={this.handleInputChange} valid={this.state.confirmPassword} />
-                    </FormGroup> */}
+
                     <Form.Field>
                         <label>Confirm Password</label>
                         <input
@@ -161,15 +150,6 @@ class Signup extends Component {
                     </Form.Field>
 
                     <Modal.Actions>
-                        {/* if all fields are valid, allow the user to submit the form */}
-                        {/* {(this.state.validEmail && this.state.validPassword && this.state.confirmPassword) ? (
-                            <Button onClick={this.props.handleSignup} color="success" block>Signup</Button>
-                        ) : (
-                                <Button onClick={this.props.handleSignup} color="danger" block disabled>Signup</Button>
-                            )} */}
-                        {/* <p className="signupLink">
-                            <Link to="/login">Already have an account?  Sign in here</Link>
-                        </p> */}
                         <Button
                             type='signup'
                             // onClick={props.handleLogin}
@@ -177,11 +157,11 @@ class Signup extends Component {
                         >
                             Signup
                         </Button>
-                        <p className='loginLink'>
+                        {/* <p className='loginLink'>
                             <Router>
                                 <Link to='/login'>Already have an account? Click here</Link>
                             </Router>
-                        </p>
+                        </p> */}
 
                     </Modal.Actions>
                 </Form>

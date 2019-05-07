@@ -92,6 +92,13 @@ class Nav extends Component {
             <Signup />
           </Modal>
           </>
+          <Menu.Item
+            name='favorites'
+          //   active={activeItem === 'home'}
+          //   onClick={this.handleItemClick}
+          >
+            Favorites
+          </Menu.Item>
         </Menu>
 
         {/* <LoginModal  opener={this.state.open} /> */}
