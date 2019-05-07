@@ -4,6 +4,6 @@ const articlesRoutes = require("./articlesRoutes");
 const userRoutes = require("./userRoutes");
 
 router.use("/articles", articlesRoutes);
-router.use("/users", userRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;

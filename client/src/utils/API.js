@@ -20,8 +20,12 @@ export default {
         return axios.put("/api/articles/vote/" + id, count);
     },
 
+    login: function(loginInfo) {
+        return axios.post("/api/user/login", loginInfo);
+      },
+
     signup: signupInfo => {
-        return axios.post("/api/users/signup", signupInfo);
+        return axios.post("/api/user/signup", signupInfo);
     }
 
 }

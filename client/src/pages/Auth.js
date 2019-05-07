@@ -53,7 +53,6 @@ class Auth extends Component {
     event.preventDefault();
 
     if (this.state.email && this.state.password) {
-      alert("hi")
       API.signup({
         email: this.state.email,
         password: this.state.password

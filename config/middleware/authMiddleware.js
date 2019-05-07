@@ -5,7 +5,7 @@ const auth = {
             next();
         } else{
             console.log("user not authenticated");
-            res.redirect('/api/users/unauthorized')
+            res.redirect('/api/user/unauthorized')
         }
     },
 
@@ -27,10 +27,10 @@ const auth = {
                 next();
             } else {
                 console.log('you must be an administer to continue');
-                res.redirect('/api/users/unauthorized')
+                res.redirect('/api/user/unauthorized')
             }
         } else {
-            res.redirect('/api/users/unauthorized')
+            res.redirect('/api/user/unauthorized')
         }
     }
 }
