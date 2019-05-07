@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Results from "../components/Results"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import API from "../utils/API"
+import "./styles.css"
 
 
 class Main extends Component {
