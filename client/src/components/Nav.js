@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Dropdown, Input, Menu, Modal } from 'semantic-ui-react';
+import { Dropdown, Input, Menu, Modal } from "semantic-ui-react";
 import Signup from "./Signup";
 import Login from "./Login";
 
 class Nav extends Component {
   state = {
     loginOpen: false,
-    signupOpen: false
+    signupOpen: false,
+    category: ""
   }
 
   closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
@@ -18,60 +19,59 @@ class Nav extends Component {
   close = () => this.setState({ loginOpen: false, signupOpen: false })
 
   handleItemClick1 = () => {
-    // this.setState({ open: true });
     this.show1();
   }
 
   handleItemClick2 = () => {
-    // this.setState({ open: true });
     this.show2();
   }
 
-  render() {
+
+  render(props) {
+    const { category } = this.state;
+    const valArray = ["Animals", "Creeps", "Drugs"];
     return (
       <>
         <Menu inverted>
 
           <Menu.Item
-            name='home'
-          //   active={activeItem === 'home'}
+            name="home"
+          //   active={activeItem === "home"}
           //   onClick={this.handleItemClick}
           >
             Florida Man
           </Menu.Item>
-
-
-          <Dropdown item text='Categories'>
-            <Dropdown.Menu>
-              <Dropdown.Item text='Animals' />
-              <Dropdown.Item text='Creeps' />
-              <Dropdown.Item text='Drugs' />
-              <Dropdown.Item text='Drunks' />
-              <Dropdown.Item text='Dumb Criminals' />
-              <Dropdown.Item text='Fail' />
-              <Dropdown.Item text='Fights' />
-              <Dropdown.Item text='Florida Woman' />
-              <Dropdown.Item text='Food' />
-              <Dropdown.Item text='Funny' />
-              <Dropdown.Item text='Guns' />
-              <Dropdown.Item text='Jerks' />
-              <Dropdown.Item text='Meth' />
-              <Dropdown.Item text='NSFW' />
-              <Dropdown.Item text='Vehicles' />
-              <Dropdown.Item text='Weird Weapons' />
-              <Dropdown.Item text='WTF' />
+          <Dropdown item text="Categories">
+            <Dropdown.Menu >
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Animals" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Creeps" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Drugs" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Drunks" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Dumb Criminals" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Fail" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Fights" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Florida Woman" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Food" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Funny" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Guns" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Jerks" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Meth" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="NSFW" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Vehicles" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Weird Weapons" />
+              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="WTF" /> 
             </Dropdown.Menu>
           </Dropdown>
 
           <Menu.Item>
 
-            < Input placeholder='Search...' />
+            < Input placeholder="Search..." />
           </Menu.Item>
-            <Modal size={'tiny'} trigger={
+            <Modal size={"tiny"} trigger={
               <Menu.Item
-                name='login'
+                name="login"
 
-              // active={activeItem === 'login'}
+              // active={activeItem === "login"}
               onClick={this.handleItemClick1}
             >
               Login
@@ -81,9 +81,9 @@ class Nav extends Component {
             <Login />
           </Modal>
           <>
-          <Modal size={'mini'} trigger={
+          <Modal size={'tiny'} trigger={
             <Menu.Item
-              name='signup'
+              name="signup"
               onClick={this.handleItemClick2}
             >
               Signup
@@ -92,6 +92,13 @@ class Nav extends Component {
             <Signup />
           </Modal>
           </>
+          <Menu.Item
+            name='favorites'
+          //   active={activeItem === 'home'}
+          //   onClick={this.handleItemClick}
+          >
+            Favorites
+          </Menu.Item>
         </Menu>
 
         {/* <LoginModal  opener={this.state.open} /> */}

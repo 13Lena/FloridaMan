@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Card from "./Card"
 import { Grid, GridColumn } from 'semantic-ui-react'
-import API from "../utils/API";
+// import API from "../utils/API";
 
 
 class Results extends Component {
@@ -11,15 +11,11 @@ class Results extends Component {
     render() {
         const dataObject = this.props;
         const dataArray = dataObject.articleData;
-
-        console.log("It won't let me commit because it says theres nothing to commit so here's a console.log")
-        console.log(dataArray)
         return(
             <Grid>
                 {dataArray ? dataArray.map(data => {
                     let left = data.left;
                     let right = data.right;
-
                     if (data.right) {
                     return ( 
                 <Grid.Row key={data.key}>
@@ -33,17 +29,17 @@ class Results extends Component {
                     <GridColumn width={1}></GridColumn>
                 </Grid.Row>
                 )
-            } else {
+                     } else {
                 return ( 
                     <Grid.Row key={data.key}>
                         <GridColumn width={1}></GridColumn>
                         <Grid.Column width={7}>
-                            <Card tags={left.meta_tags} imgUrl={left.image_url} headline={left.headline} id={left._id}/>
+                            <Card tags={left.meta_tags} imgUrl={left.image_url} headline={left.headline} upvote={left.upvote} downvote={left.downvote} id={left._id}/>
                         </Grid.Column>
                         <GridColumn width={1}></GridColumn>
                     </Grid.Row>
                     )
-            }}) : (<></>)}
+                }}) : (<></>)}
             </Grid>
         )};
 

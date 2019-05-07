@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input, FormText, Alert } from 'reactstrap';
-// import { Link } from "react-router-dom";
-import { ModalActions } from "semantic-ui-react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Modal, Button, Form } from "semantic-ui-react";
+
 
 class Signup extends Component {
     state = {
@@ -106,34 +105,65 @@ class Signup extends Component {
 
     render() {
         return (
-            <div>
-                <h2 className="loginTitle">Signup</h2>
+            <div style={{ padding: "10px"}}>
+                <h2 className="signupTitle"> Please Signup</h2>
                 <hr />
                 <Form>
-                    <FormGroup>
-                        <Label for="email">Email</Label>
-                        <Input type="email" name="email" id="email" placeholder="email@email.com" value={this.props.email} onChange={this.props.handleInputChange} valid={this.state.validEmail} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input type="password" name="password" id="password" placeholder="password" value={this.props.password} onChange={this.props.handleInputChange} valid={this.state.validPassword} />
-                        <FormText>{this.state.passwordMessage}</FormText>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="confirmPassword">Confirm Password</Label>
-                        <Input type="password" name="password" id="confirmPassword" placeholder="confirm password" value={this.state.password} onChange={this.handleInputChange} valid={this.state.confirmPassword} />
-                    </FormGroup>
-                    <ModalActions>
-                        {/* if all fields are valid, allow the user to submit the form */}
-                        {(this.state.validEmail && this.state.validPassword && this.state.confirmPassword) ? (
-                            <Button onClick={this.props.handleSignup} color="success" block>Signup</Button>
-                        ) : (
-                                <Button onClick={this.props.handleSignup} color="danger" block disabled>Signup</Button>
-                            )}
-                        {/* <p className="signupLink">
-                            <Link to="/login">Already have an account?  Sign in here</Link>
+                    <Form.Field>
+                        <label>Email</label>
+                        <input
+                            placeholder='Email'
+                            type='text'
+                            name='email'
+                            id='email'
+                            value={this.props.email}        
+                            onChange={this.props.handleInputChange}
+                            valid={this.state.validEmail}
+                        />
+                    </Form.Field>
+
+                    <Form.Field>
+                        <label>Password</label>
+                        <input
+                            placeholder='Password'
+                            type='password'
+                            name='password'
+                            id='password'
+                            value={this.props.password}
+                            onChange={this.props.handleInputChange}
+                            valid={this.state.validPassword}
+                        />
+                        {/* <FormText>{this.state.passwordMessage}</FormText> */}
+                    </Form.Field>
+
+                    <Form.Field>
+                        <label>Confirm Password</label>
+                        <input
+                            placeholder='Confirm Password'
+                            type='password'
+                            name='password'
+                            id='confirmPassword'
+                            value={this.state.password}
+                            onChange={this.handleInputChange}
+                            valid={this.state.confirmPassword}
+                        />
+                    </Form.Field>
+
+                    <Modal.Actions>
+                        <Button
+                            type='signup'
+                            onClick={this.props.handleSignup}
+                            color='teal'
+                        >
+                            Signup
+                        </Button>
+                        {/* <p className='loginLink'>
+                            <Router>
+                                <Link to='/login'>Already have an account? Click here</Link>
+                            </Router>
                         </p> */}
-                    </ModalActions>
+
+                    </Modal.Actions>
                 </Form>
             </div>
         );
@@ -141,4 +171,3 @@ class Signup extends Component {
 }
 
 export default Signup;
-

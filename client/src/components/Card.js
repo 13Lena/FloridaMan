@@ -122,7 +122,7 @@ class Card extends Component {
                     <h3>{this.props.headline}</h3>
                     
                     <Modal 
-                      size={'medium'} 
+                      size={'small'} 
                       trigger={<Button 
                                   inverted color='teal' 
                                   animated='fade'

@@ -18,6 +18,10 @@ export default {
     },
     downVote: (id, count)=>{
         return axios.put("/api/articles/vote/" + id, count);
+    },
+
+    signup: signupInfo => {
+        return axios.post("/api/users/signup", signupInfo);
     }
 
 }

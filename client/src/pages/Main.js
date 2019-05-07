@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Results from "../components/Results"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import API from "../utils/API"
 
 
@@ -28,6 +29,7 @@ class Main extends Component {
     }
 
     render() {
+        // console.log(this.props.category)
         return(
             <Results articleData={this.state.articleData} />
         );
