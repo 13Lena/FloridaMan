@@ -7,7 +7,6 @@ import Favorites from "./pages/Favorites";
 // import Auth from "./pages/Auth";
 // import NoMatch from "./pages/NoMatch";
 
-import { Container } from 'reactstrap';
 import UserProvider from "./context";
 
 function App() {
@@ -17,12 +16,10 @@ function App() {
       <Router>
         <div>
           <Nav />
-          <Container>
             <Switch>
               <Route exact path="/" component={Main} /> 
-              <Route exact path="/favorites" component={Favorites} /> 
+              <Route exact path="/Favorites" component={Favorites} /> 
             </Switch>
-          </Container>
         </div>
       </Router>
     // {/* </UserProvider> */}
