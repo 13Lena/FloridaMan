@@ -15,18 +15,11 @@ router.post("/login", passport.authenticate("local", {
 });
 
 router.post("/signup", function(req, res, next) {
-  db.User.findOne({email: req.body.email}, function(err, user) {
-    console.log("user already exists")
-
-    if (err) throw err;
-    if (user) {
-      console.log("user already exists")
-      return res.json("user already exists");
-    }
-    if (!user) {
-      db.User.findOne({email: req.body.email}, function(err, useremail) {
+  console.log(req.body.email)
+  let email = req.body.email;
+      db.User.find({email: req.body.email}, function(err, email) {
         if (err) throw err;
-        if (useremail) {
+        if (email) {
           return res.json("email is already in use") 
         }
         if (!useremail) {
@@ -42,9 +35,9 @@ router.post("/signup", function(req, res, next) {
           });
         }
       })     
-    }
+  
   })
-});
+
 
 router.get("/unauthorized", function(req, res, next) {
   res.json({

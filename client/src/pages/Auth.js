@@ -9,7 +9,7 @@ class Auth extends Component {
 
   state = {
     loggedIn: false,
-    username: "",
+    email: "",
     password: "",
     confirmPassword: "",
     user: null,
@@ -26,16 +26,16 @@ class Auth extends Component {
 
   handleLogin = event => {
     event.preventDefault();
-    if (this.state.username && this.state.password) {
+    if (this.state.email && this.state.password) {
       API.login({
-        username: this.state.username,
+        email: this.state.email,
         password: this.state.password
       }).then(user => {
         console.log(user);
         if (user.data.loggedIn) {
           this.setState({
             loggedIn: true,
-            user: user.data.user
+            email: user.data.user
           });
           console.log("log in successful");
           window.location.href = '/profile';
@@ -51,16 +51,17 @@ class Auth extends Component {
 
   handleSignup = event => {
     event.preventDefault();
-    alert("hi")
-    if (this.state.username && this.state.password) {
+
+    if (this.state.email && this.state.password) {
+      alert("hi")
       API.signup({
-        username: this.state.username,
+        email: this.state.email,
         password: this.state.password
       }).then(user => {
         if (user.data.loggedIn) {
           this.setState({
             loggedIn: true,
-            user: user.data.user
+            email: user.data.user
           });
           console.log("log in successful");
           window.location.href = '/profile';
@@ -88,7 +89,7 @@ class Auth extends Component {
           />
         ) : (
             <Signup
-              username={this.state.username}
+            email={this.state.email}
               password={this.state.password}
               confirmPassword={this.state.confirmPassword}
               handleSignup={this.handleSignup}
