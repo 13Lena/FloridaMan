@@ -12,17 +12,21 @@ class Main extends Component {
     }
     
     componentDidMount() {
+        this.loadArticles();
+    }
+
+    loadArticles = () => {
         API.getArticles()
-            .then(res => {
-                const dataToBeMapped = [];
-                for (let i = 0; i < res.data.length; i+=2) {
-                    let tempObject = {left: res.data[i], right: res.data[i+1], key: i}
-                    dataToBeMapped.push(tempObject)
-                }
-                this.setState({ articleData: dataToBeMapped })
+        .then(res => {
+            const dataToBeMapped = [];
+            for (let i = 0; i < res.data.length; i+=2) {
+                let tempObject = {left: res.data[i], right: res.data[i+1], key: i}
+                dataToBeMapped.push(tempObject)
             }
-                )
-            .catch(err => console.log(err))
+            this.setState({ articleData: dataToBeMapped })
+        }
+            )
+        .catch(err => console.log(err))
     }
 
     render() {

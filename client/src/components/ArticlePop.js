@@ -5,6 +5,8 @@ import { Modal } from "semantic-ui-react";
 
 
 function ArticlePop (props) {
+
+
     return(
 
             <div style={{padding: "15px"}}>
