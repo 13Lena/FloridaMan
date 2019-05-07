@@ -40,11 +40,11 @@ function Login(props) {
                     >
                         Login
                     </Button>
-                    <p className='signupLink'>
+                    {/* <p className='signupLink'>
                         <Router>
                             <Link to='/signup'>Don't have an account? Sign up here</Link>
                         </Router>
-                    </p>
+                    </p> */}
                 </Modal.Actions>
             </Form>
         </div>

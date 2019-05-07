@@ -177,11 +177,11 @@ class Signup extends Component {
                         >
                             Signup
                         </Button>
-                        <p className='loginLink'>
+                        {/* <p className='loginLink'>
                             <Router>
                                 <Link to='/login'>Already have an account? Click here</Link>
                             </Router>
-                        </p>
+                        </p> */}
 
                     </Modal.Actions>
                 </Form>
