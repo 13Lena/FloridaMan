@@ -5,18 +5,23 @@ const authMiddleware = require("../../config/middleware/authMiddleware");
 
 
 router.post("/login", passport.authenticate("local", {
-  failureRedirect: "/api/users/unauthorized",
+  failureRedirect: "/api/user/unauthorized",
   failureFlash : true
 }), function (req, res, next) {
   console.log("sign in successful")
   res.json({
-    user: req.user,
+    username: req.username,
     loggedIn: true
   });
 });
 
+
+
 router.post("/signup", function(req, res, next) {
-      db.User.find({email: req.body.email}, function(err, email) {
+      db.User.find({username: req.body.username}, function(err, username) {
+        console.log("email: ",username)
+        console.log("length: ",username.length)
+
         // if (err) throw err;
         // if (email) {
         //   return res.json("email is already in use") 
@@ -24,7 +29,7 @@ router.post("/signup", function(req, res, next) {
         if (!email) {
           console.log("making new user")
           let newUser = new db.User({
-            email: req.body.email,
+            username: req.body.username,
             password: req.body.password,
             loggedIn: true
           })

@@ -30,6 +30,7 @@ class App extends Component {
         <div>
           <Nav handleMenuClick={this.handleMenuClick} />
           <Switch>
+          <Route exact path='/' render={props => <Main {...props} category={this.state.category} />} />
             <Route exact path="/" component={Main} />
             <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
             <Route exact path="/favorites" component={Favorites} />

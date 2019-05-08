@@ -8,6 +8,9 @@ export default {
     getOneArticle:(id) => {
         return axios.get("/api/articles/" + id);
     },
+    getFilteredArticles:(tag) => {
+        return axios.get("/api/articles/" + tag.toUpperCase());
+    },
     // searchAr: (title) => {
     //     return axios.post("/search", {title: title});
     // },
@@ -22,10 +25,12 @@ export default {
     },
 
     login: function(loginInfo) {
+        console.log(loginInfo)
         return axios.post("/api/user/login", loginInfo);
       },
 
     signup: signupInfo => {
+        console.log(signupInfo)
         return axios.post("/api/user/signup", signupInfo);
     }, 
 

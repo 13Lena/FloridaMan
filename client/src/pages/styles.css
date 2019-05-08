@@ -1,8 +1,8 @@
 body {
-    background-image: url("../images/017-Subtle-light-patterns-Vol04.png");
+    background-image: url("../images/white-sand.jpg");
     height: 800px;
     background-position: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
     position: relative;
     background-attachment: fixed;

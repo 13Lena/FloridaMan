@@ -6,16 +6,17 @@ import API from "../utils/API";
 class Card extends Component {
   state = {
     open: false,
-    upvote: 0,
-    downvote: 0
+    upvote:0,
+    downvote:0,
+    hasClicked: false
   }
-
-  componentDidMount() {
-    this.setState({
-      upvote: this.props.upvote,
-      downvote: this.props.downvote
-    })
-  }
+  
+    componentDidMount(){
+      this.setState({ 
+        upvote: this.props.upvote, 
+        downvote: this.props.downvote
+    })}
+    
 
   closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
     this.setState({ closeOnEscape, closeOnDimmerClick, open: true })
@@ -28,102 +29,92 @@ class Card extends Component {
     this.show();
   }
 
-  handleUpIncrement = id => {
-    console.log(id);
-    let count = this.state.upvote + 1;
-    API.upVote(id, { upvote: count })
-      .then(() => this.setState({ upvote: this.state.upvote + 1 }))
+    handleUpIncrement = id => {
+      if(!this.state.hasClicked){
+      console.log(id);
+      let count = this.state.upvote + 1;
+      API.upVote(id, {upvote: count})
+      .then(() => this.setState({ upvote: this.state.upvote + 1, hasClicked: true }))
+      
 
       .catch(err => console.log(err))
       .then(this.props.loadArticles)
-      .catch(err => console.log(err))
-
-  };
-
-  handleDownIncrement = id => {
-    console.log(id);
-    let count = this.state.downvote + 1;
-    API.downVote(id, { downvote: count })
-      .then(() => this.setState({ downvote: this.state.downvote + 1 }))
+      .catch(err =>console.log(err))
+      }
+    
+    };
+    
+    handleDownIncrement = id => {
+      if(!this.state.hasClicked){
+      console.log(id);
+      let count = this.state.downvote + 1;
+      API.downVote(id, {downvote: count})
+      .then(() => this.setState({ downvote: this.state.downvote + 1, hasClicked: true }))
+      
 
       .catch(err => console.log(err))
       .then(this.props.loadArticles)
-      .catch(err => console.log(err))
+      .catch(err =>console.log(err))
+      }
+    };
 
-  };
+        render (){
 
-  render() {
+          return (
+          <Grid>
+              <GridRow>
+                  <GridColumn width={6}>
+                    <Image src={this.props.imgUrl} rounded />
+                  </GridColumn>
+                  <GridColumn width={10}>
+                    <h3>{this.props.headline}</h3>          
+                    <Modal 
+                      size={'small'} 
+                      trigger={<Button 
+                                  size='medium'
+                                  color='teal' 
+                                  animated='fade'
+                                  onClick={this.handleItemClick}>
+                                    <Button.Content visible>Read More</Button.Content>
+                                    <Button.Content hidden>
+                                      <Icon name='eye' />
+                                    </Button.Content>
+                                </Button>} 
+                      onClose={this.close} 
+                      open={this.state.open}>
+                        <ArticlePop 
+                        imgUrl={this.props.imgUrl}
+                        headline={this.props.headline}
+                        body={this.props.body}
+                        upvote={this.props.upvote}
+                        downvote={this.props.downvote}
+                        />
+                        
+                     </Modal>
+                     <Modal.Actions>
+                                               
+                      <div class="ui labeled right floated button" tabindex="0" >
+                        <div class="ui tiny orange button" 
+                        onClick={() => this.handleDownIncrement(this.props.id)}>
+                        <i class="arrow circle down icon"></i>Dislike
+                        </div>
+                        <a class="ui basic left pointing orange label">{this.state.downvote}
+                        </a>
+                      </div>
+                      <div class="ui labeled right floated button" tabIndex="0">
+                        <div class="ui tiny teal button" 
+                        onClick={() => this.handleUpIncrement(this.props.id)}>
+                        <i class="arrow circle up icon"></i>like
+                        </div>
+                        <a class="ui basic teal left pointing label">{this.state.upvote}</a>
+                      </div>
 
-    return (
-      <Grid>
-        <GridRow>
-          <GridColumn width={6}>
-            <Image src={this.props.imgUrl} />
-            <Modal.Actions>
-
-              <div className="ui labeled button" tabIndex="0">
-                <div className="ui teal button"
-                  onClick={() => this.handleUpIncrement(this.props.id)}>
-                  <i className="thumbs up icon"></i>Upvote
-             </div>
-                <a className="ui basic teal left pointing label">{this.state.upvote}</a>
-              </div>
-
-              <div className="ui labeled button" tabIndex="0" >
-                <div className="ui orange button"
-                  onClick={() => this.handleDownIncrement(this.props.id)}>
-                  <i className="thumbs down icon"></i>Downvote
-             </div>
-                <a className="ui basic left pointing orange label">{this.state.downvote}
-                </a>
-              </div>
-              {/* <span><Button 
-                    color='blue'
-                    content='Upvote'
-                    icon='thumbs up'
-                    label={{ basic: true, color: 'blue', pointing: 'left', content:'500'}}
-                    onClick={this.handleUpIncrement}>
-                  </Button>
-                  <Button
-                    color='red'
-                    content='Downvote'
-                    icon='thumbs down'
-                    label={{as: 'a', basic:'true', color: 'red', pointing: 'left', content:'500'}}
-                    onClick={this.handleDownIncrement}>
-                  </Button></span> */}
-            </Modal.Actions>
-          </GridColumn>
-          <GridColumn width={10}>
-            <h3>{this.props.headline}</h3>
-
-            <Modal
-              size={'small'}
-              trigger={<Button
-                inverted color='teal'
-                animated='fade'
-                onClick={this.handleItemClick}>
-                <Button.Content visible>Read More</Button.Content>
-                <Button.Content hidden>
-                  <Icon name='eye' />
-                </Button.Content>
-              </Button>}
-              onClose={this.close}
-              open={this.state.open}>
-              <ArticlePop
-                imgUrl={this.props.imgUrl}
-                headline={this.props.headline}
-                body={this.props.body}
-                upvote={this.props.upvote}
-                downvote={this.props.downvote}
-              />
-
-            </Modal>
-
-          </GridColumn>
-        </GridRow>
-      </Grid>
-    );
-  }
+                    </Modal.Actions>
+                  </GridColumn>
+              </GridRow>
+          </Grid> 
+        );
+    }
 }
 
 export default Card; 
