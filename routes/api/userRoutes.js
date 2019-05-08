@@ -36,7 +36,7 @@ router.post("/signup", function (req, res, next) {
     }, function (err) {
       if (err) throw err;
       console.log("user saved!");
-      res.redirect(307, "/favorites");
+      res.json({username: req.body.username}).status(307);
     });
   })
 })
