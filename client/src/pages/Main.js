@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Results from "../components/Results"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import API from "../utils/API";
-import "./styles.css";
-import InfiniteScroll from 'react-infinite-scroller';
+import API from "../utils/API"
+import "./styles.css"
 
 
 
@@ -38,26 +36,22 @@ class Main extends Component {
                     dataToBeMapped.push(tempObject)
                 }
                 this.setState({ articleData: dataToBeMapped })
-            })
-            .catch(err => console.log(err))
-        }
-    }
+            }).catch(err => console.log(err))
+        };
+    };
 
     componentDidUpdate(prevProps){
         if (prevProps.category !== this.props.category) {
         this.loadArticles(this.props.category)
-    }
-      }
-
-    
+        }
+    };
 
     render() {
-        // console.log(this.props.category)
         return (
             
             <Results articleData={this.state.articleData} />
         );
     }
-}
+};
 
 export default Main;

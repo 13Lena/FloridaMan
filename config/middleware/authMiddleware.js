@@ -1,4 +1,5 @@
 const auth = {
+   
     isLoggedIn: (req, res, next)=> {
         if(req.isAuthenticated()){
             console.log('user authenticated');

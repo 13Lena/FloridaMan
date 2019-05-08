@@ -3,11 +3,9 @@ import { Button, Header, Image } from 'semantic-ui-react'
 import { Modal } from "semantic-ui-react";
 
 
-function ArticlePop (props) {
+function ArticlePop(props) {
 
-
-    return(
-
+  return (
             <div style={{padding: "15px"}}>
                 <Modal.Content image>
                   <Image size='large' centered src={props.imgUrl} rounded style={{paddingBottom: "15px"}}/>
@@ -28,6 +26,7 @@ function ArticlePop (props) {
                 </Modal.Actions>
             </div> 
     )
+
 }
 
 export default ArticlePop; 

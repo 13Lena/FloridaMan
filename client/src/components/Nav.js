@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Dropdown, Input, Menu, Modal, DropdownMenu, DropdownItem } from "semantic-ui-react";
+import { Dropdown, Menu, DropdownItem } from "semantic-ui-react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Signup from "./Signup";
-import Login from "./Login";
 
 class Nav extends Component {
   state = {
@@ -27,8 +25,7 @@ class Nav extends Component {
     this.show2();
   }
 
-
-  render(props) {
+  render() {
     return (
       <>
         <Menu inverted size='massive'>
@@ -56,7 +53,7 @@ class Nav extends Component {
               <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="NSFW" />
               <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Vehicles" />
               <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Weird Weapons" />
-              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="WTF" /> 
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="WTF" />
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown item text="Extras">
@@ -72,27 +69,23 @@ class Nav extends Component {
               <DropdownItem href="https://www.nydailynews.com/news/world-hilarious-mug-shots-gallery-1.14220" text="Mugshot Hall of Fame" />
               <DropdownItem href="https://www.youtube.com/watch?v=UD9LEPML8uk" target="_blank" text="Who is Florida Man?" />
               <DropdownItem  href="https://www.atlasobscura.com/lists/the-best-of-weird-florida" target="_blank" text="Weird Florida" />
+
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Item
-            name='favorites'
-          >
-            Favorites
+            name="favorites"
+          >Favorites
           </Menu.Item>
 
-          {/* <Menu.Item>
-            < Input placeholder="Search..." />
-          </Menu.Item> */}
           <Menu.Item
-            position='right'
+            position="right"
             name="login"
             onClick={this.handleItemClick1}
-            ><Link to="/login"> Login</Link>
+          ><Link to="/login"> Login</Link>
           </Menu.Item>
           <Menu.Item
-              // position='right'
-              name="signup"
-            ><Link to="/signup">Signup</Link>
+            name="signup"
+          ><Link to="/signup">Signup</Link>
           </Menu.Item>
 
         </Menu>
