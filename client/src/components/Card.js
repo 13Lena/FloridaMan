@@ -19,10 +19,6 @@ class Card extends Component {
         downvote: this.props.downvote
     })}
     
-  
-
-
-
 
   closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
     this.setState({ closeOnEscape, closeOnDimmerClick, open: true })

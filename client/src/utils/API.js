@@ -7,6 +7,9 @@ export default {
     getOneArticle:(id) => {
         return axios.get("/api/articles/" + id);
     },
+    getFilteredArticles:(tag) => {
+        return axios.get("/api/articles/" + tag.toUpperCase());
+    },
     // searchAr: (title) => {
     //     return axios.post("/search", {title: title});
     // },

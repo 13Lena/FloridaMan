@@ -17,6 +17,14 @@ module.exports = {
       .then(dbArticle => res.json(dbArticle))
       .catch(err => res.status(422).json(err));
   },
+
+  findByTag: function (req, res) {
+    db.Article
+      .find({ meta_tags: req.params.tag })
+      .then(dbArticle => res.json(dbArticle))
+      .catch(err => res.status(422).json(err));
+  },
+
   updateUpVote: function (req, res){
     // console.log(req.body);
     db.Article

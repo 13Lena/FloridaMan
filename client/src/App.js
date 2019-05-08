@@ -23,7 +23,7 @@ class App extends Component {
         category: category
       });
   
-    setTimeout(() => console.log(this.state.category), 50)
+    // setTimeout(() => console.log(this.state.category), 50)
  }
 
 
@@ -38,6 +38,7 @@ class App extends Component {
         <div>
           <Nav handlemenuclick={this.handleMenuClick} />
           <Switch>
+          <Route exact path='/' render={props => <Main {...props} category={this.state.category} />} />
             <Route exact path="/" component={Main} />
             <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
             <Route exact path="/favorites" component={Favorites} />
