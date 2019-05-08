@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Results from "../components/Results"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import API from "../utils/API"
-import "./styles.css"
+import API from "../utils/API";
+import "./styles.css";
+import InfiniteScroll from 'react-infinite-scroller';
+
 
 
 class Main extends Component {
@@ -52,6 +54,7 @@ class Main extends Component {
     render() {
         // console.log(this.props.category)
         return (
+            
             <Results articleData={this.state.articleData} />
         );
     }

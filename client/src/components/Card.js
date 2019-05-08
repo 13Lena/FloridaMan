@@ -10,6 +10,15 @@ class Card extends Component {
     downvote:0,
     hasClicked: false
   }
+
+  saveFavorite = (event) => {
+    const {value} = event.target;
+    console.log(value)
+    API.saveFavorite({
+      _id: value
+    })
+    .catch(err => console.log(err))
+  }
   
     componentDidMount(){
       this.setState({ 
@@ -83,6 +92,8 @@ class Card extends Component {
                       onClose={this.close} 
                       open={this.state.open}>
                         <ArticlePop 
+                        id={this.props.id}
+                        saveFavorite={this.saveFavorite}
                         imgUrl={this.props.imgUrl}
                         headline={this.props.headline}
                         body={this.props.body}

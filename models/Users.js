@@ -25,7 +25,12 @@ const usersSchema = new Schema({
 	},
 	loggedIn: {
 		type: Boolean
+	},
+	favs: {
+		type: Array,
+		default: []
 	}
+
 });
 
 usersSchema.methods.generateHash = function (password) {

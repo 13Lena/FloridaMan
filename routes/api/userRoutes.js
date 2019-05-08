@@ -71,4 +71,10 @@ router.get("/admin", authMiddleware.isAdmin, function(req, res, next) {
   });
 });
 
+router.put("/favorite", function(req, res) {
+  db.Article.findById(req.body._id)
+  .then(dbArticle => {
+      db.User.findOneAndUpdate({_id:req.body._id}, {"$push": {"favs":dbArticle} })}
+)});
+
 module.exports = router;
