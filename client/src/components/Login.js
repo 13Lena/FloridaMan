@@ -36,10 +36,9 @@ function Login(props) {
                             <Button
                                 type="login"
                                 onClick={props.handleLogin}
-                                color="teal"    
+                                color="teal"   
                             > Login 
-                                {() => alert("login click")}
-                                </Button>
+                            </Button>
                             <p className="signupLink"></p>
                         </Form>
                     </div>

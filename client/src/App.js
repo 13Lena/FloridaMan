@@ -33,7 +33,7 @@ class App extends Component {
             <Route exact path="/" component={Main} />
             <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
             <Route exact path="/favorites" component={Favorites} />
-            <Route exact path="/login" rednder={(props) => <Auth {...props} actions="login" />} component={Login} />
+            <Route exact path="/login" render={(props) => <Auth {...props} action="login" />} />
           </Switch>
         </div>
       </Router>
