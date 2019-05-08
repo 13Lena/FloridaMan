@@ -1,7 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { Grid, GridColumn, GridRow, Form, Button } from "semantic-ui-react";
 
-function Login(props) {
+class Login extends Component {
+
+    render() {
     return (
         <Grid>
             <GridRow>
@@ -18,8 +20,8 @@ function Login(props) {
                                     type="text"
                                     name="email"
                                     id="email"
-                                    value={props.email}
-                                    onChange={props.handleInputChange}
+                                    value={this.props.email}
+                                    onChange={this.props.handleInputChange}
                                 />
                             </Form.Field>
                             <Form.Field>
@@ -29,13 +31,13 @@ function Login(props) {
                                     type="password"
                                     name="password"
                                     id="password"
-                                    value={props.password}
-                                    onChange={props.handleInputChange}
+                                    value={this.props.password}
+                                    onChange={this.props.handleInputChange}
                                 />
                             </Form.Field>
                             <Button
                                 type="login"
-                                onClick={props.handleLogin}
+                                onClick={this.props.handleLogin}
                                 color="teal"    
                             > Login 
                                 {() => alert("login click")}
@@ -48,5 +50,6 @@ function Login(props) {
             </GridRow>
         </Grid>
     )
+}
 };
 export default Login;

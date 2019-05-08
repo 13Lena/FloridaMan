@@ -24,10 +24,12 @@ export default {
     },
 
     login: function(loginInfo) {
+        console.log(loginInfo)
         return axios.post("/api/user/login", loginInfo);
       },
 
     signup: signupInfo => {
+        console.log(signupInfo)
         return axios.post("/api/user/signup", signupInfo);
     }
 

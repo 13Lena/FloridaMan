@@ -26,13 +26,13 @@ class Auth extends Component {
 
   handleLogin = event => {
     event.preventDefault();
-    alert("login click route")
+    // alert("login click route")
     if (this.state.email && this.state.password) {
       API.login({
-        email: this.state.email,
+        username: this.state.email,
         password: this.state.password
       }).then(user => {
-        console.log(user);
+        console.log("hey ",user);
         if (user.data.loggedIn) {
           this.setState({
             loggedIn: true,
@@ -55,21 +55,21 @@ class Auth extends Component {
     alert("handleSignup")
     if (this.state.email && this.state.password) {
       API.signup({
-        email: this.state.email,
+        username: this.state.email,
         password: this.state.password
-      }).then(user => {
-        if (user.data.loggedIn) {
+      }).then(username => {
+        if (username.data.loggedIn) {
           this.setState({
             loggedIn: true,
-            email: user.data.user
+            email: username.data.username
           });
           console.log("log in successful");
           window.location.href = '/favorites';
         } else {
           console.log("something went wrong :(")
-          console.log(user.data);
+          console.log(username.data);
           this.setState({
-            message: user.data
+            message: username.data
           })
         }
       });
@@ -77,6 +77,7 @@ class Auth extends Component {
   }
 
   render() {
+
     return (
       <div className="authBox">
         {(this.props.action === "login") ? (

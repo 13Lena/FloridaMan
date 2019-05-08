@@ -21,9 +21,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+console.log("ifEnv: ",process.env.NODE_ENV)
+
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
+}   else {
+    app.use(express.static("client/public"))
 }
 
 app.use(routes);
