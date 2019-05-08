@@ -15,40 +15,37 @@ router.post("/login", passport.authenticate("local", {
 });
 
 router.post("/signup", function (req, res, next) {
+  console.log(req.body)
   db.User.find({ username: req.body.username }, function (err, username) {
     console.log("email: ", username)
-    console.log("length: ", username.length)
+    if (err) throw err;
+    console.log("making new user")
+    let newUser = new db.User({
+      username: req.body.username,
+      password: req.body.password
+    })
 
-    // if (!username) {
-      console.log("making new user")
-      let newUser = new db.User({
-        username: req.body.username,
-        password: req.body.password,
-
-      })
-      newUser.password = newUser.generateHash(req.body.password);
-      newUser.save(function (err) {
-        if (err) throw err;
-        console.log("user saved!");
-        res.redirect(307, "/api/user/login");
-
-      });
-    // }
+    newUser.password = newUser.generateHash(req.body.password);
+    console.log(newUser)
+    db.User.create({
+      username: req.body.username,
+      password: newUser.password
+    }, function (err) {
+      if (err) throw err;
+      console.log("user saved!");
+      res.redirect(307, "/favorites");
+    });
   })
 })
 
 router.get("/unauthorized", function (req, res, next) {
-  let message = req.flash("error")[0]
-
-  setTimeout(function () {
-    res.json({
-      message: message,
-      loggedIn: false
-    });
-  }, 100);
+  res.json({
+    error: req.flash("error"),
+    message: "user not authenticated"
+  });
 });
 
-router.get("/favorite", authMiddleware.isLoggedIn, function (req, res, next) {
+router.get("/favorites", authMiddleware.isLoggedIn, function (req, res, next) {
   res.json({
     user: req.user,
     loggedIn: true
