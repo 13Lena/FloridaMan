@@ -26,7 +26,6 @@ class Auth extends Component {
 
   handleLogin = event => {
     event.preventDefault();
-    // alert("login click route")
     this.props.usernameCB(this.state.email)
     if (this.state.email && this.state.password) {
       API.login({
@@ -61,7 +60,6 @@ class Auth extends Component {
         username: this.state.email,
         password: this.state.password
       }).then(username => {
-        console.log(username.data.username)
         if (username.data.username) {
           this.setState({
             loggedIn: true,
@@ -72,7 +70,7 @@ class Auth extends Component {
           window.location.href = '/favorites';
         } else {
           console.log("something went wrong :(")
-          console.log(username.data);
+          console.log(username.data.user);
           this.setState({
             message: username.data
           })

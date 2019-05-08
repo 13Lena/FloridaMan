@@ -12,10 +12,7 @@ router.post("/login", passport.authenticate("local", {
     username: req.username,
     loggedIn: true
   });
-  res.redirect("/favorites")
 });
-
-
 
 router.post("/signup", function (req, res, next) {
   console.log(req.body)
@@ -26,7 +23,7 @@ router.post("/signup", function (req, res, next) {
     let newUser = new db.User({
       username: req.body.username,
       password: req.body.password
-    })
+    });
 
     newUser.password = newUser.generateHash(req.body.password);
     console.log(newUser)
@@ -36,10 +33,10 @@ router.post("/signup", function (req, res, next) {
     }, function (err) {
       if (err) throw err;
       console.log("user saved!");
-      res.json({username: req.body.username}).status(307);
+      res.json({ username: req.body.username });
     });
-  })
-})
+  });
+});
 
 router.get("/unauthorized", function (req, res, next) {
   res.json({
@@ -65,5 +62,11 @@ router.get("/admin", authMiddleware.isAdmin, function (req, res, next) {
     loggedIn: true
   });
 });
+
+router.put("/favorite", function(req, res) {
+  db.Article.findById(req.body._id)
+  .then(dbArticle => {
+      db.User.findOneAndUpdate({_id:req.body._id}, {"$push": {"favs":dbArticle} })}
+)});
 
 module.exports = router;

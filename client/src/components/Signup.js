@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Modal} from "semantic-ui-react";
+import { Modal } from "semantic-ui-react";
 import { Grid, GridColumn, GridRow, Form, Button } from "semantic-ui-react";
 
 class Signup extends Component {
@@ -107,64 +106,63 @@ class Signup extends Component {
                 <GridRow>
                     <GridColumn width={2}></GridColumn>
                     <GridColumn width={9}>
-                    <div style={{ padding: "10px", backgroundColor: "white", marginLeft: "200px" }}>
-                <h2 className="signupTitle"> Please Signup</h2>
-                <hr />
-                <Form>
-                    <Form.Field>
-                        <label>Email</label>
-                        <input
-                            placeholder='Email'
-                            type='text'
-                            name='email'
-                            id='email'
-                            value={this.props.email}        
-                            onChange={this.props.handleInputChange}
-                            valid={this.state.validEmail}
-                        />
-                    </Form.Field>
+                        <div style={{ padding: "10px", backgroundColor: "white", marginLeft: "200px" }}>
+                            <h2 className="signupTitle"> Please Signup</h2>
+                            <hr />
+                            <Form>
+                                <Form.Field>
+                                    <label>Email</label>
+                                    <input
+                                        placeholder='Email'
+                                        type='text'
+                                        name='email'
+                                        id='email'
+                                        value={this.props.email}
+                                        onChange={this.props.handleInputChange}
+                                        valid={this.state.validEmail}
+                                    />
+                                </Form.Field>
 
-                    <Form.Field>
-                        <label>Password</label>
-                        <input
-                            placeholder='Password'
-                            type='password'
-                            name='password'
-                            id='password'
-                            value={this.props.password}
-                            onChange={this.props.handleInputChange}
-                            valid={this.state.validPassword}
-                        />
-                    </Form.Field>
+                                <Form.Field>
+                                    <label>Password</label>
+                                    <input
+                                        placeholder='Password'
+                                        type='password'
+                                        name='password'
+                                        id='password'
+                                        value={this.props.password}
+                                        onChange={this.props.handleInputChange}
+                                        valid={this.state.validPassword}
+                                    />
+                                </Form.Field>
 
-                    <Form.Field>
-                        <label>Confirm Password</label>
-                        <input
-                            placeholder='Confirm Password'
-                            type='password'
-                            name='password'
-                            id='confirmPassword'
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            valid={this.state.confirmPassword}
-                        />
-                    </Form.Field>
+                                <Form.Field>
+                                    <label>Confirm Password</label>
+                                    <input
+                                        placeholder='Confirm Password'
+                                        type='password'
+                                        name='password'
+                                        id='confirmPassword'
+                                        value={this.state.password}
+                                        onChange={this.handleInputChange}
+                                        valid={this.state.confirmPassword}
+                                    />
+                                </Form.Field>
 
-                    <Modal.Actions>
-                        <Button
-                            type='signup'
-                            onClick={this.props.handleSignup}
-                            color='teal'
-                        >
-                            Signup
-                        </Button>
-                    </Modal.Actions>
-                </Form>
-            </div>
+                                <Modal.Actions>
+                                    <Button
+                                        type='signup'
+                                        onClick={this.props.handleSignup}
+                                        color='teal'
+                                    >Signup
+                                    </Button>
+                                </Modal.Actions>
+                            </Form>
+                        </div>
                     </GridColumn>
                 </GridRow>
             </Grid>
-            
+
         );
     }
 }

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Dropdown, Input, Menu, Modal, DropdownMenu, DropdownItem } from "semantic-ui-react";
+import { Dropdown, Menu, DropdownItem } from "semantic-ui-react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Signup from "./Signup";
-import Login from "./Login";
 
 class Nav extends Component {
   state = {
@@ -27,8 +25,7 @@ class Nav extends Component {
     this.show2();
   }
 
-
-  render(props) {
+  render() {
     return (
       <>
         <Menu inverted size='massive'>
@@ -56,43 +53,39 @@ class Nav extends Component {
               <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="NSFW" />
               <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Vehicles" />
               <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Weird Weapons" />
-              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="WTF" /> 
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="WTF" />
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown item text="Extras">
             <Dropdown.Menu>
               <DropdownItem href="https://en.wikipedia.org/wiki/Florida_Man" target="_blank" text="Florida Man Wiki" />
-              <DropdownItem href="https://imgur.com/gallery/bggY9" text="Florida Man Comics" />
-              <DropdownItem href="https://www.50states.com/facts/florida.htm" text="Florida Facts" />
-              <DropdownItem href="http://www.tampabay.com/florida/2019/04/08/here-are-the-most-outrageous-license-plates-rejected-by-the-florida-dmv/?n" text="Florida Licence Plates" />
+              <DropdownItem href="https://imgur.com/gallery/bggY9" target="_blank" text="Florida Man Comics" />
+              <DropdownItem href="https://www.50states.com/facts/florida.htm" target="_blank" text="Florida Facts" />
+              <DropdownItem href="http://www.tampabay.com/florida/2019/04/08/here-are-the-most-outrageous-license-plates-rejected-by-the-florida-dmv/?n" target="_blank" text="Florida Licence Plates" />
               <DropdownItem href="https://en.wikipedia.org/wiki/List_of_invasive_species_in_Florida" text="Invasive Species of Florida" />
-              <DropdownItem href="https://www.independent.co.uk/news/world/americas/hurricane-irma-gun-owners-florida-shoot-down-storm-a7937546.html" text="Florida Weather Control" />
-              <DropdownItem href="https://www.reddit.com/r/polishman" text="Polish Man" />
-              <DropdownItem href="https://www.atlasobscura.com/articles/whatever-you-do-do-not-eat-touch-or-even-inhale-the-air-around-the-manchineel-tree" text="Worst Plant Ever" />
+              <DropdownItem href="https://www.independent.co.uk/news/world/americas/hurricane-irma-gun-owners-florida-shoot-down-storm-a7937546.html" target="_blank" text="Florida Weather Control" />
+              <DropdownItem href="https://www.reddit.com/r/polishman" target="_blank" text="Polish Man" />
+              <DropdownItem href="https://www.atlasobscura.com/articles/whatever-you-do-do-not-eat-touch-or-even-inhale-the-air-around-the-manchineel-tree" target="_blank" text="Worst Plant Ever" />
               <DropdownItem href="https://www.nydailynews.com/news/world-hilarious-mug-shots-gallery-1.14220" text="Mugshot Hall of Fame" />
-              <DropdownItem href="https://www.youtube.com/watch?v=UD9LEPML8uk" text="Who is Florida Man?" />
-              <DropdownItem  href="https://www.atlasobscura.com/lists/the-best-of-weird-florida" text="Weird Florida" />
+              <DropdownItem href="https://www.youtube.com/watch?v=UD9LEPML8uk" target="_blank" text="Who is Florida Man?" />
+              <DropdownItem  href="https://www.atlasobscura.com/lists/the-best-of-weird-florida" target="_blank" text="Weird Florida" />
+
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Item
-            name='favorites'
-          >
-            Favorites
+            name="favorites"
+          >Favorites
           </Menu.Item>
 
-          {/* <Menu.Item>
-            < Input placeholder="Search..." />
-          </Menu.Item> */}
           <Menu.Item
-            position='right'
+            position="right"
             name="login"
             onClick={this.handleItemClick1}
-            ><Link to="/login"> Login</Link>
+          ><Link to="/login"> Login</Link>
           </Menu.Item>
           <Menu.Item
-              // position='right'
-              name="signup"
-            ><Link to="/signup">Signup</Link>
+            name="signup"
+          ><Link to="/signup">Signup</Link>
           </Menu.Item>
 
         </Menu>
