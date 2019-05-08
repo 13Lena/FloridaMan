@@ -3,7 +3,6 @@ const passport = require("../../config/passport");
 const db = require("../../models");
 const authMiddleware = require("../../config/middleware/authMiddleware");
 
-
 router.post("/login", passport.authenticate("local", {
   failureRedirect: "/api/user/unauthorized",
   failureFlash: true
@@ -15,19 +14,17 @@ router.post("/login", passport.authenticate("local", {
   });
 });
 
-
-
 router.post("/signup", function (req, res, next) {
   db.User.find({ username: req.body.username }, function (err, username) {
     console.log("email: ", username)
     console.log("length: ", username.length)
 
-    if (!username) {
+    // if (!username) {
       console.log("making new user")
       let newUser = new db.User({
         username: req.body.username,
         password: req.body.password,
-        loggedIn: true
+
       })
       newUser.password = newUser.generateHash(req.body.password);
       newUser.save(function (err) {
@@ -36,7 +33,7 @@ router.post("/signup", function (req, res, next) {
         res.redirect(307, "/api/user/login");
 
       });
-    }
+    // }
   })
 })
 
