@@ -29,8 +29,6 @@ class Nav extends Component {
 
 
   render(props) {
-    const { category } = this.state;
-    const valArray = ["Animals", "Creeps", "Drugs"];
     return (
       <>
         <Menu inverted>
@@ -42,23 +40,23 @@ class Nav extends Component {
           </Menu.Item>
           <Dropdown item text="Categories">
             <Dropdown.Menu >
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Animals" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Creeps" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Drugs" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Drunks" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Dumb Criminals" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Fail" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Fights" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Florida Woman" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Food" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Funny" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Guns" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Jerks" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Meth" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="NSFW" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Vehicles" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="Weird Weapons" />
-              <Dropdown.Item onClick={this.props.handlemenuclick} name="category" text="WTF" /> 
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Animals" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Creeps" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Drugs" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Drunks" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Dumb Criminals" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Fail" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Fights" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Florida Woman" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Food" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Funny" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Guns" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Jerks" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Meth" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="NSFW" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Vehicles" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="Weird Weapons" />
+              <Dropdown.Item onClick={this.props.handleMenuClick} name="category" text="WTF" /> 
             </Dropdown.Menu>
           </Dropdown>
 
