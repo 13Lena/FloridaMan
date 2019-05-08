@@ -23,7 +23,7 @@ router.post("/signup", function (req, res, next) {
     let newUser = new db.User({
       username: req.body.username,
       password: req.body.password
-    })
+    });
 
     newUser.password = newUser.generateHash(req.body.password);
     console.log(newUser)
@@ -33,10 +33,10 @@ router.post("/signup", function (req, res, next) {
     }, function (err) {
       if (err) throw err;
       console.log("user saved!");
-      res.redirect(307, "/favorites");
+      res.json({ username: req.body.username });
     });
-  })
-})
+  });
+});
 
 router.get("/unauthorized", function (req, res, next) {
   res.json({

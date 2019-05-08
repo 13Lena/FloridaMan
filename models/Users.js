@@ -25,6 +25,10 @@ const usersSchema = new Schema({
 	},
 	loggedIn: {
 		type: Boolean
+	},
+	favs: {
+		type: [],
+		default: []
 	}
 });
 

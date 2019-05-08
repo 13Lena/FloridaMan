@@ -4,7 +4,6 @@ import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main";
 import Favorites from "./pages/Favorites";
-import Login from "./components/Login"
 import Auth from "./pages/Auth";
 
 
