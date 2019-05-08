@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export default {
     getArticles: () => {
         return axios.get("/api/articles");
@@ -14,7 +15,7 @@ export default {
     //     return axios.post("/search", {title: title});
     // },
     favorite: (id) => {
-        return axios.post("/api/users/" + id);
+        return axios.post("/api/user/" + id);
     },
     upVote: (id, count)=>{
         return axios.put("/api/articles/vote/"  + id, count);
@@ -31,6 +32,17 @@ export default {
     signup: signupInfo => {
         console.log(signupInfo)
         return axios.post("/api/user/signup", signupInfo);
-    }
+    }, 
 
+    isLoggedIn: function() {
+        return axios.get("/api/user/favorites")
+    },
+
+    isAdmin: function() {
+        return axios.get("/api/user/logout")
+    },
+
+    logout: function() {
+        return axios.get("/api/user/logout")
+    }
 }
