@@ -1,7 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import API from "../utils/API"
-import { Modal } from "semantic-ui-react";
 import { Grid, GridColumn, GridRow, Form, Button } from "semantic-ui-react";
 
 function Login(props) {

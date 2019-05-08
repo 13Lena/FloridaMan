@@ -3,7 +3,7 @@ import Login from "../components/Login";
 import Signup from "../components/Signup";
 import API from "../utils/API";
 import "semantic-ui-css/semantic.min.css";
-// import "./Auth.scss";
+
 
 class Auth extends Component {
 
@@ -52,7 +52,7 @@ class Auth extends Component {
 
   handleSignup = event => {
     event.preventDefault();
-
+    alert("handleSignup")
     if (this.state.email && this.state.password) {
       API.signup({
         email: this.state.email,
@@ -81,7 +81,7 @@ class Auth extends Component {
       <div className="authBox">
         {(this.props.action === "login") ? (
           <Login
-            username={this.state.username}
+            email={this.state.email}
             password={this.state.password}
             handleLogin={this.handleLogin}
             handleInputChange={this.handleInputChange}
@@ -101,7 +101,5 @@ class Auth extends Component {
     )
   }
 }
-
-
 
 export default Auth;

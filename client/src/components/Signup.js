@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Modal} from "semantic-ui-react";
 import { Grid, GridColumn, GridRow, Form, Button } from "semantic-ui-react";
 
@@ -107,7 +107,7 @@ class Signup extends Component {
                 <GridRow>
                     <GridColumn width={2}></GridColumn>
                     <GridColumn width={9}>
-                    <div style={{ padding: "10px", backgroundColor: "white", marginLeft: "175px" }}>
+                    <div style={{ padding: "10px", backgroundColor: "white", marginLeft: "200px" }}>
                 <h2 className="signupTitle"> Please Signup</h2>
                 <hr />
                 <Form>

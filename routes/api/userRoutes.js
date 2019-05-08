@@ -12,7 +12,7 @@ router.post("/login", passport.authenticate("local", {
     user: req.user,
     loggedIn: true
   });
-  // res.redirect("/favorites")
+  res.redirect("/favorites")
 });
 
 router.post("/signup", function(req, res, next) {
@@ -43,7 +43,6 @@ router.post("/signup", function(req, res, next) {
       })     
   
   })
-
 
 router.get("/unauthorized", function(req, res, next) {
   res.json({

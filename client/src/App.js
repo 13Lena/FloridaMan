@@ -6,9 +6,7 @@ import Main from "./pages/Main";
 import Favorites from "./pages/Favorites";
 import Login from "./components/Login"
 import Auth from "./pages/Auth";
-// import NoMatch from "./pages/NoMatch";
 
-import UserProvider from "./context";
 
 class App extends Component {
 
@@ -26,11 +24,7 @@ class App extends Component {
     setTimeout(() => console.log(this.state.category), 50)
  }
 
-
-
-
   render() {
-
     return (
       <Router>
         <div>
@@ -44,7 +38,6 @@ class App extends Component {
         </div>
       </Router>
     );
-
   }
 }
 
