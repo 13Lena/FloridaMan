@@ -18,19 +18,21 @@ class Results extends Component {
                 <Grid.Row key={data.key}>
                     <GridColumn width={1}></GridColumn>
                     <Grid.Column width={7}>
+
                         <Card tags={left.meta_tags} 
-                        imgUrl={left.image_url || "http://loremflickr.com/320/240" } 
+                        imgUrl={left.image_url || "https://images-na.ssl-images-amazon.com/images/I/71Y7JseBYYL._SX466_.jpg" } 
                         headline={left.headline} body={left.body} 
                         upvote={left.upvote} downvote={left.downvote} 
                         id={left._id}/>
                     </Grid.Column>
                     <Grid.Column  width={7}>
                         <Card tags={right.meta_tags} 
-                        imgUrl={right.image_url || "http://via.placeholder.com/252x141/008000"} 
+                        imgUrl={right.image_url || "https://images-na.ssl-images-amazon.com/images/I/71Y7JseBYYL._SX466_.jpg"} 
                         headline={right.headline} body={right.body} 
                         upvote={right.upvote} 
                         downvote={right.downvote} 
                         id={right._id} />
+
                     </Grid.Column>
                     <GridColumn width={1}></GridColumn>
                 </Grid.Row>

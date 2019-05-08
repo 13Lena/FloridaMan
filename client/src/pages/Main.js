@@ -4,6 +4,7 @@ import API from "../utils/API"
 import "./styles.css"
 
 
+
 class Main extends Component {
 
     state = {
@@ -47,6 +48,7 @@ class Main extends Component {
 
     render() {
         return (
+            
             <Results articleData={this.state.articleData} />
         );
     }

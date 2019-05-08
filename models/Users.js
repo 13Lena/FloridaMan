@@ -27,9 +27,10 @@ const usersSchema = new Schema({
 		type: Boolean
 	},
 	favs: {
-		type: [],
+		type: Array,
 		default: []
 	}
+
 });
 
 usersSchema.methods.generateHash = function (password) {
@@ -43,3 +44,5 @@ usersSchema.methods.validPassword = function (password, encrypted) {
 const User = mongoose.model("User", usersSchema);
 
 module.exports = User;
+
+//checking if this works

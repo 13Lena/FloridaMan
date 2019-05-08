@@ -11,12 +11,20 @@ class Card extends Component {
     hasClicked: false
   }
 
-  componentDidMount() {
-    this.setState({
-      upvote: this.props.upvote,
-      downvote: this.props.downvote
+  saveFavorite = (event) => {
+    const {value} = event.target;
+    console.log(value)
+    API.saveFavorite({
+      _id: value
     })
+    .catch(err => console.log(err))
   }
+  
+    componentDidMount(){
+      this.setState({ 
+        upvote: this.props.upvote, 
+        downvote: this.props.downvote
+    })}
 
   closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
     this.setState({ closeOnEscape, closeOnDimmerClick, open: true })
@@ -90,10 +98,46 @@ class Card extends Component {
             </Modal>
             <Modal.Actions>
 
-              <div className="ui labeled right floated button" tabIndex="0" >
-                <div className="ui tiny orange button"
-                  onClick={() => this.handleDownIncrement(this.props.id)}>
-                  <i className="arrow circle down icon"></i>Dislike
+
+          return (
+          <Grid>
+              <GridRow>
+                  <GridColumn width={6}>
+                    <Image src={this.props.imgUrl} rounded />
+                  </GridColumn>
+                  <GridColumn width={10}>
+                    <h3>{this.props.headline}</h3>          
+                    <Modal 
+                      size={'small'} 
+                      trigger={<Button 
+                                  size='medium'
+                                  color='teal' 
+                                  animated='fade'
+                                  onClick={this.handleItemClick}>
+                                    <Button.Content visible>Read More</Button.Content>
+                                    <Button.Content hidden>
+                                      <Icon name='eye' />
+                                    </Button.Content>
+                                </Button>} 
+                      onClose={this.close} 
+                      open={this.state.open}>
+                        <ArticlePop 
+                        id={this.props.id}
+                        saveFavorite={this.saveFavorite}
+                        imgUrl={this.props.imgUrl}
+                        headline={this.props.headline}
+                        body={this.props.body}
+                        upvote={this.props.upvote}
+                        downvote={this.props.downvote}
+                        />
+                        
+                     </Modal>
+                     <Modal.Actions>
+                                               
+                      <div class="ui labeled right floated button" tabindex="0" >
+                        <div class="ui tiny orange button" 
+                        onClick={() => this.handleDownIncrement(this.props.id)}>
+                        <i class="arrow circle down icon"></i>Dislike
                         </div>
                 <a className="ui basic left pointing orange label">{this.state.downvote}
                 </a>
