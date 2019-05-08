@@ -9,6 +9,10 @@ router
   .put(articlesController.updateUpVote)
   .put(articlesController.updateDownVote);
 
+  router
+    .route("/:tag")
+    .get(articlesController.findByTag);
+
 // Matches with "/api/books/:id"
 router
   .route("/:id")

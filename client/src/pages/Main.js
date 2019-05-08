@@ -10,28 +10,48 @@ class Main extends Component {
     state = {
         articleData: []
     }
-    
+
     componentDidMount() {
         this.loadArticles();
     }
 
-    loadArticles = () => {
-        API.getArticles()
-        .then(res => {
-            const dataToBeMapped = [];
-            for (let i = 0; i < res.data.length; i+=2) {
-                let tempObject = {left: res.data[i], right: res.data[i+1], key: i}
-                dataToBeMapped.push(tempObject)
-            }
-            this.setState({ articleData: dataToBeMapped })
+    loadArticles = tag => {
+        if (!tag) {
+            API.getArticles()
+                .then(res => {
+                    const dataToBeMapped = [];
+                    for (let i = 0; i < res.data.length; i += 2) {
+                        let tempObject = { left: res.data[i], right: res.data[i + 1], key: i }
+                        dataToBeMapped.push(tempObject)
+                    }
+                    this.setState({ articleData: dataToBeMapped })
+                })
+                .catch(err => console.log(err))
+        } else {
+            API.getFilteredArticles(tag)
+            .then(res => {
+                const dataToBeMapped = [];
+                for (let i = 0; i < res.data.length; i += 2) {
+                    let tempObject = { left: res.data[i], right: res.data[i + 1], key: i }
+                    dataToBeMapped.push(tempObject)
+                }
+                this.setState({ articleData: dataToBeMapped })
+            })
+            .catch(err => console.log(err))
         }
-            )
-        .catch(err => console.log(err))
     }
+
+    componentDidUpdate(prevProps){
+        if (prevProps.category !== this.props.category) {
+        this.loadArticles(this.props.category)
+    }
+      }
+
+    
 
     render() {
         // console.log(this.props.category)
-        return(
+        return (
             <Results articleData={this.state.articleData} />
         );
     }
