@@ -6,7 +6,7 @@ const authMiddleware = require("../../config/middleware/authMiddleware");
 
 router.post("/login", passport.authenticate("local", {
   failureRedirect: "/api/user/unauthorized",
-  failureFlash : true
+  failureFlash: true
 }), function (req, res, next) {
   console.log("sign in successful")
   res.json({
@@ -17,37 +17,33 @@ router.post("/login", passport.authenticate("local", {
 
 
 
-router.post("/signup", function(req, res, next) {
-      db.User.find({username: req.body.username}, function(err, username) {
-        console.log("email: ",username)
-        console.log("length: ",username.length)
+router.post("/signup", function (req, res, next) {
+  db.User.find({ username: req.body.username }, function (err, username) {
+    console.log("email: ", username)
+    console.log("length: ", username.length)
 
-        // if (err) throw err;
-        // if (email) {
-        //   return res.json("email is already in use") 
-        // }
-        if (!email) {
-          console.log("making new user")
-          let newUser = new db.User({
-            username: req.body.username,
-            password: req.body.password,
-            loggedIn: true
-          })
-          newUser.password = newUser.generateHash(req.body.password);
-          newUser.save(function(err) {
-            if (err) throw err;
-            console.log("user saved!");
-            res.redirect(307, "/api/user/login");
-            
-          });
-        }
-      })     
+    if (!username) {
+      console.log("making new user")
+      let newUser = new db.User({
+        username: req.body.username,
+        password: req.body.password,
+        loggedIn: true
+      })
+      newUser.password = newUser.generateHash(req.body.password);
+      newUser.save(function (err) {
+        if (err) throw err;
+        console.log("user saved!");
+        res.redirect(307, "/api/user/login");
+
+      });
+    }
   })
+})
 
-router.get("/unauthorized", function(req, res, next) {  
+router.get("/unauthorized", function (req, res, next) {
   let message = req.flash("error")[0]
-  
-  setTimeout(function() {
+
+  setTimeout(function () {
     res.json({
       message: message,
       loggedIn: false
@@ -55,18 +51,18 @@ router.get("/unauthorized", function(req, res, next) {
   }, 100);
 });
 
-router.get("/favorite", authMiddleware.isLoggedIn, function(req, res, next) {
+router.get("/favorite", authMiddleware.isLoggedIn, function (req, res, next) {
   res.json({
     user: req.user,
     loggedIn: true
   });
 });
 
-router.get("/logout", authMiddleware.logoutUser, function(req, res, next) {
+router.get("/logout", authMiddleware.logoutUser, function (req, res, next) {
   res.json("User logged out successfully");
 });
 
-router.get("/admin", authMiddleware.isAdmin, function(req, res, next) {
+router.get("/admin", authMiddleware.isAdmin, function (req, res, next) {
   res.json({
     user: req.user,
     loggedIn: true
