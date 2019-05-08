@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Dropdown, Input, Menu, Modal } from "semantic-ui-react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Signup from "./Signup";
 import Login from "./Login";
 
@@ -36,10 +37,8 @@ class Nav extends Component {
 
           <Menu.Item
             name="home"
-          //   active={activeItem === "home"}
-          //   onClick={this.handleItemClick}
           >
-            Florida Man
+            <Link to="/">Florida Man</Link>
           </Menu.Item>
           <Dropdown item text="Categories">
             <Dropdown.Menu >
@@ -64,44 +63,23 @@ class Nav extends Component {
           </Dropdown>
 
           <Menu.Item>
-
             < Input placeholder="Search..." />
           </Menu.Item>
-            <Modal size={"tiny"} trigger={
               <Menu.Item
                 name="login"
-
-              // active={activeItem === "login"}
-              onClick={this.handleItemClick1}
-            >
-              Login
-            </Menu.Item>
-          } onClose={this.close} open={this.state.loginOpen}>
-
-            <Login />
-          </Modal>
-          <>
-          <Modal size={'tiny'} trigger={
-            <Menu.Item
+                onClick={this.handleItemClick1}
+              ><Link to="/login"> Login</Link>
+          </Menu.Item>
+          <Menu.Item
               name="signup"
-              onClick={this.handleItemClick2}
-            >
-              Signup
-            </Menu.Item>
-          } onClose={this.close} open={this.state.signupOpen}>
-            <Signup />
-          </Modal>
-          </>
+            ><Link to="/signup">Signup</Link>
+          </Menu.Item>
           <Menu.Item
             name='favorites'
-          //   active={activeItem === 'home'}
-          //   onClick={this.handleItemClick}
           >
             Favorites
           </Menu.Item>
         </Menu>
-
-        {/* <LoginModal  opener={this.state.open} /> */}
       </>
     );
   }
