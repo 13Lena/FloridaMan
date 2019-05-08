@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import Card from "./Card"
 import { Grid, GridColumn } from 'semantic-ui-react'
-// import API from "../utils/API";
-
 
 class Results extends Component {
-
-    
 
     render() {
         const dataObject = this.props;
@@ -40,8 +36,9 @@ class Results extends Component {
                     </Grid.Row>
                     )
                 }}) : (<></>)}
-            </Grid>
-        )};
+            </ Grid>
+        )
+    };
 
 }
 

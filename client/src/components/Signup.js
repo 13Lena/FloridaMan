@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Modal, Button, Form } from "semantic-ui-react";
-
+import { Modal} from "semantic-ui-react";
+import { Grid, GridColumn, GridRow, Form, Button } from "semantic-ui-react";
 
 class Signup extends Component {
     state = {
@@ -11,8 +11,6 @@ class Signup extends Component {
         password: "",
         passwordMessage: "",
         open: false,
-        // show = () => this.setState({ open: true }),
-        // close = () => this.setState({ open: false })
     }
 
     componentDidMount() {
@@ -105,7 +103,11 @@ class Signup extends Component {
 
     render() {
         return (
-            <div style={{ padding: "10px"}}>
+            <Grid>
+                <GridRow>
+                    <GridColumn width={2}></GridColumn>
+                    <GridColumn width={9}>
+                    <div style={{ padding: "10px", backgroundColor: "white", marginLeft: "175px" }}>
                 <h2 className="signupTitle"> Please Signup</h2>
                 <hr />
                 <Form>
@@ -133,7 +135,6 @@ class Signup extends Component {
                             onChange={this.props.handleInputChange}
                             valid={this.state.validPassword}
                         />
-                        {/* <FormText>{this.state.passwordMessage}</FormText> */}
                     </Form.Field>
 
                     <Form.Field>
@@ -157,15 +158,13 @@ class Signup extends Component {
                         >
                             Signup
                         </Button>
-                        {/* <p className='loginLink'>
-                            <Router>
-                                <Link to='/login'>Already have an account? Click here</Link>
-                            </Router>
-                        </p> */}
-
                     </Modal.Actions>
                 </Form>
             </div>
+                    </GridColumn>
+                </GridRow>
+            </Grid>
+            
         );
     }
 }

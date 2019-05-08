@@ -12,6 +12,7 @@ router.post("/login", passport.authenticate("local", {
     user: req.user,
     loggedIn: true
   });
+  // res.redirect("/favorites")
 });
 
 router.post("/signup", function(req, res, next) {
@@ -28,13 +29,15 @@ router.post("/signup", function(req, res, next) {
           console.log("making new user")
           let newUser = new db.User({
             email: req.body.email,
-            password: req.body.password
+            password: req.body.password,
+            loggedIn: true
           })
           newUser.password = newUser.generateHash(req.body.password);
           newUser.save(function(err) {
             if (err) throw err;
             console.log("user saved!");
-            res.redirect(307, "/api/user/login")
+            res.redirect(307, "/favorites");
+            
           });
         // }
       })     
@@ -49,7 +52,7 @@ router.get("/unauthorized", function(req, res, next) {
   });
 });
 
-router.get("/profile", authMiddleware.isLoggedIn, function(req, res, next) {
+router.get("/favorites", authMiddleware.isLoggedIn, function(req, res, next) {
   res.json({
     user: req.user,
     loggedIn: true

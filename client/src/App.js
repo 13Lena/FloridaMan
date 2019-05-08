@@ -4,7 +4,7 @@ import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Main from "./pages/Main";
 import Favorites from "./pages/Favorites";
-import Login from "./pages/Login"
+import Login from "./components/Login"
 import Auth from "./pages/Auth";
 // import NoMatch from "./pages/NoMatch";
 
@@ -32,20 +32,17 @@ class App extends Component {
   render() {
 
     return (
-
-      // <UserProvider>
       <Router>
         <div>
-          <Nav handlemenuclick={this.handleMenuClick} />
+          <Nav handleMenuClick={this.handleMenuClick} />
           <Switch>
             <Route exact path="/" component={Main} />
             <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
             <Route exact path="/favorites" component={Favorites} />
-            <Route exact path="/Login" component={Login} />
+            <Route exact path="/login" rednder={(props) => <Auth {...props} actions="login" />} component={Login} />
           </Switch>
         </div>
       </Router>
-      // {/* </UserProvider> */}
     );
 
   }
