@@ -3,7 +3,7 @@ import Login from "../components/Login";
 import Signup from "../components/Signup";
 import API from "../utils/API";
 import "semantic-ui-css/semantic.min.css";
-// import "./Auth.scss";
+
 
 class Auth extends Component {
 
@@ -26,6 +26,7 @@ class Auth extends Component {
 
   handleLogin = event => {
     event.preventDefault();
+    alert("login click route")
     if (this.state.email && this.state.password) {
       API.login({
         email: this.state.email,
@@ -38,7 +39,7 @@ class Auth extends Component {
             email: user.data.user
           });
           console.log("log in successful");
-          window.location.href = '/profile';
+          window.location.href = '/favorites';
         }
         else if (user.data.message) {
           this.setState({
@@ -51,7 +52,7 @@ class Auth extends Component {
 
   handleSignup = event => {
     event.preventDefault();
-
+    alert("handleSignup")
     if (this.state.email && this.state.password) {
       API.signup({
         email: this.state.email,
@@ -63,7 +64,7 @@ class Auth extends Component {
             email: user.data.user
           });
           console.log("log in successful");
-          window.location.href = '/profile';
+          window.location.href = '/favorites';
         } else {
           console.log("something went wrong :(")
           console.log(user.data);
@@ -80,7 +81,7 @@ class Auth extends Component {
       <div className="authBox">
         {(this.props.action === "login") ? (
           <Login
-            username={this.state.username}
+            email={this.state.email}
             password={this.state.password}
             handleLogin={this.handleLogin}
             handleInputChange={this.handleInputChange}
@@ -88,7 +89,7 @@ class Auth extends Component {
           />
         ) : (
             <Signup
-            email={this.state.email}
+              email={this.state.email}
               password={this.state.password}
               confirmPassword={this.state.confirmPassword}
               handleSignup={this.handleSignup}
@@ -100,7 +101,5 @@ class Auth extends Component {
     )
   }
 }
-
-
 
 export default Auth;

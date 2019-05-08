@@ -8,7 +8,8 @@ class Card extends Component {
   state = {
     open: false,
     upvote:0,
-    downvote:0
+    downvote:0,
+    hasClicked: false
   }
   
 
@@ -33,29 +34,33 @@ class Card extends Component {
   } 
 
     handleUpIncrement = id => {
+      if(!this.state.hasClicked){
       console.log(id);
       let count = this.state.upvote + 1;
       API.upVote(id, {upvote: count})
-      .then(() => this.setState({ upvote: this.state.upvote + 1 }))
+      .then(() => this.setState({ upvote: this.state.upvote + 1, hasClicked: true }))
       
 
       .catch(err =>console.log(err))
       .then(this.props.loadArticles)
       .catch(err =>console.log(err))
+      }
+
       
     };
     
     handleDownIncrement = id => {
+      if(!this.state.hasClicked){
       console.log(id);
       let count = this.state.downvote + 1;
       API.downVote(id, {downvote: count})
-      .then(() => this.setState({ downvote: this.state.downvote + 1 }))
+      .then(() => this.setState({ downvote: this.state.downvote + 1, hasClicked: true }))
       
 
       .catch(err =>console.log(err))
       .then(this.props.loadArticles)
       .catch(err =>console.log(err))
-      
+      }
     };
     
 
