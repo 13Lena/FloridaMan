@@ -15,7 +15,6 @@ router.post("/login", passport.authenticate("local", {
 });
 
 router.post("/signup", function (req, res, next) {
-  console.log(req.body)
   db.User.find({ username: req.body.username }, function (err, username) {
     console.log("email: ", username)
     if (err) throw err;
@@ -24,7 +23,6 @@ router.post("/signup", function (req, res, next) {
       username: req.body.username,
       password: req.body.password
     });
-
     newUser.password = newUser.generateHash(req.body.password);
     console.log(newUser)
     db.User.create({
@@ -64,7 +62,6 @@ router.get("/admin", authMiddleware.isAdmin, function (req, res, next) {
 });
 
 router.put("/favorite", function (req, res) {
-  console.log("hi")
   db.Article
     .findById(req.body._id)
     .then(dbArticle => {
@@ -74,5 +71,12 @@ router.put("/favorite", function (req, res) {
         .catch(err => res.status(422).json(err))
     })
 });
+
+router.get("/favorite-articles/:user", function(req, res) {
+    db.User
+      .findOne({username: req.params.user})
+      .then(dbArticle => res.json(dbArticle))
+      .catch(err => res.status(422).json(err));
+  })
 
 module.exports = router;

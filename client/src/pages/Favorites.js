@@ -1,55 +1,41 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Results from "../components/Results";
 import API from "../utils/API"
-import { Grid, GridColumn, Header, Image } from "semantic-ui-react";
-import Card from "../components/Card"
+// import { Grid, GridColumn, Header, Image } from "semantic-ui-react";
 import "./styles.css"
 
 
 
 class Favorites extends Component {
 
-    // state = {
-    //     articleData: []
-    // }
+    state = {
+        articleData: [],
+        isLoggedIn: sessionStorage.loggedIn
+    }
     
-    // componentDidMount() {
-    //     API.getArticles()
-    //         .then(res => {
-    //             const dataToBeMapped = [];
-    //             for (let i = 0; i < res.data.length; i+=2) {
-    //                 let tempObject = {left: res.data[i], right: res.data[i+1], key: i}
-    //                 dataToBeMapped.push(tempObject)
-    //             }
-    //             this.setState({ articleData: dataToBeMapped })
-    //         }
-    //             )
-    //         .catch(err => console.log(err))
-    // }
+    componentDidMount() {
+
+        API.getFavorites(sessionStorage.username)
+            .then(res => {
+                const dataToBeMapped = [];
+                console.log(res.data.favs)
+                for (let i = 0; i < res.data.favs.length; i+=2) {
+                    let tempObject = {left: res.data.favs[i], right: res.data.favs[i+1], key: i}
+                    dataToBeMapped.push(tempObject)
+                }
+                this.setState({ articleData: dataToBeMapped });
+            }
+                )
+            .catch(err => console.log(err))
+        
+    }
 
     render() {
         return(
             
        <div>
-           <Grid>
-               <Grid.Row>
-                   <GridColumn width={3}></GridColumn>
-                   <Grid.Column width={10}>
-                        <Header as='h1' textAlign='center' attached>
-                        FLORIDA MAN
-                            <Header.Subheader>Worlds Worst Super Hero</Header.Subheader>
-                        </Header>
-                        <Card attached
-                            // tags={meta_tags}
-                            // imgUrl={image_url}
-                            // headline={headline}
-                            // body={body} 
-                            />
-                   </Grid.Column>
-                   <GridColumn width={3}></GridColumn>
-               </Grid.Row>
-           </Grid>
+            <Results username={sessionStorage.loggedIn} articleData={this.state.articleData} />
        </div>
 
         )}

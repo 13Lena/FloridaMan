@@ -2,7 +2,6 @@ const db = require("../models");
 
 
 module.exports = {
-  // this needs editing
   
   findAll: function (req, res) {
     db.Article
@@ -24,20 +23,18 @@ module.exports = {
       .then(dbArticle => res.json(dbArticle))
       .catch(err => res.status(422).json(err));
   },
-
+  
   updateUpVote: function (req, res){
-    // console.log(req.body);
     db.Article
     .findOneAndUpdate({ _id: req.params.id }, req.body, {new:true})
     .then(dbArticle => res.json(dbArticle))
     .catch(err => res.status(422).json(err));
   },
+
   updateDownVote: function (req, res){
     db.Article
     .findOneAndUpdate({ _id: req.params.id }, req.body)
     .then(dbArticle => res.json(dbArticle))
     .catch(err => res.status(422).json(err));
   }
-
-
 };

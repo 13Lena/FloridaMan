@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import API from "../utils/API";
@@ -26,6 +27,7 @@ class Auth extends Component {
 
   handleLogin = event => {
     event.preventDefault();
+    sessionStorage.username = this.state.email;
     this.props.usernameCB(this.state.email)
     if (this.state.email && this.state.password) {
       API.login({
@@ -34,16 +36,17 @@ class Auth extends Component {
       }).then(username => {
  
         if (username.data.loggedIn) {
-
           this.setState({
             loggedIn: true,
             email: username.data.username
           });
-
+          ;
+          sessionStorage.loggedIn = true
           console.log("log in successful");
-          // window.location.href = '/favorites';
+          setTimeout(() => window.location.href = '/favorites',50)
         }
         else if (username.data.message) {
+          sessionStorage.username = null;
           this.setState({
             message: username.data.message
           })
@@ -54,6 +57,7 @@ class Auth extends Component {
 
   handleSignup = event => {
     event.preventDefault();
+    sessionStorage.username = this.state.username;
     this.props.usernameCB(this.state.email)
     if (this.state.email && this.state.password) {
       API.signup({
@@ -65,12 +69,13 @@ class Auth extends Component {
             loggedIn: true,
             email: username.data.username
           });
-
           console.log("log in successful");
-          window.location.href = '/favorites';
+          window.location.href = '/';
+          sessionStorage.loggedIn = true
         } else {
           console.log("something went wrong :(")
           console.log(username.data.user);
+          sessionStorage.username = null;
           this.setState({
             message: username.data
           })
@@ -80,7 +85,6 @@ class Auth extends Component {
   }
 
   render() {
-
     return (
       <div className="authBox">
         {(this.props.action === "login") ? (
@@ -101,6 +105,7 @@ class Auth extends Component {
               message={this.state.message}
             />
           )}
+          
       </div>
     )
   }

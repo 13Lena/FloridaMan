@@ -1,53 +1,55 @@
 import axios from "axios";
 
-
 export default {
     getArticles: () => {
         return axios.get("/api/articles");
     },
-    getOneArticle:(id) => {
+
+    getOneArticle: (id) => {
         return axios.get("/api/articles/" + id);
     },
-    getFilteredArticles:(tag) => {
+
+    getFilteredArticles: (tag) => {
         return axios.get("/api/articles/" + tag.toUpperCase());
     },
-    // searchAr: (title) => {
-    //     return axios.post("/search", {title: title});
-    // },
+
     favorite: (id) => {
         return axios.post("/api/user/" + id);
     },
-    upVote: (id, count)=>{
-        return axios.put("/api/articles/vote/"  + id, count);
+
+    getFavorites: username => {
+        return axios.get("/api/user/favorite-articles/" + username);
     },
-    downVote: (id, count)=>{
+
+    upVote: (id, count) => {
         return axios.put("/api/articles/vote/" + id, count);
     },
 
-    login: function(loginInfo) {
-        console.log(loginInfo)
+    downVote: (id, count) => {
+        return axios.put("/api/articles/vote/" + id, count);
+    },
+
+    login: function (loginInfo) {
         return axios.post("/api/user/login", loginInfo);
-      },
+    },
 
     signup: signupInfo => {
-        console.log(signupInfo)
         return axios.post("/api/user/signup", signupInfo);
     },
 
     saveFavorite: (favData) => {
-        console.log("hi");
         return axios.put("/api/user/favorite", favData);
-    }, 
+    },
 
-    isLoggedIn: function() {
+    isLoggedIn: function () {
         return axios.get("/api/user/favorites")
     },
 
-    isAdmin: function() {
+    isAdmin: function () {
         return axios.get("/api/user/logout")
     },
 
-    logout: function() {
+    logout: function () {
         return axios.get("/api/user/logout")
     }
 }

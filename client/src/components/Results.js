@@ -6,8 +6,10 @@ import { Grid, GridColumn } from 'semantic-ui-react';
 class Results extends Component {
 
     render() {
+
         const dataObject = this.props;
         const dataArray = dataObject.articleData;
+        console.log("hi, ",dataArray)
         return(
             <Grid>
                 {dataArray ? dataArray.map(data => {
