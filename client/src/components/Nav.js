@@ -6,7 +6,8 @@ class Nav extends Component {
   state = {
     loginOpen: false,
     signupOpen: false,
-    category: ""
+    category: "",
+    isLoggedIn: false
   }
 
   closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
@@ -24,6 +25,7 @@ class Nav extends Component {
   handleItemClick2 = () => {
     this.show2();
   }
+
 
   render() {
     return (
@@ -71,8 +73,9 @@ class Nav extends Component {
               <DropdownItem href="https://www.atlasobscura.com/lists/the-best-of-weird-florida" target="_blank" text="Weird Florida" />
             </Dropdown.Menu>
           </Dropdown>
-          <Menu.Item
-            name="favorites"
+          
+          <Menu.Item 
+            name="favorites"            
           >Favorites
           </Menu.Item>
 
