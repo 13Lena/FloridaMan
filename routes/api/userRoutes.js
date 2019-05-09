@@ -63,10 +63,16 @@ router.get("/admin", authMiddleware.isAdmin, function (req, res, next) {
   });
 });
 
-router.put("/favorite", function(req, res) {
-  db.Article.findById(req.body._id)
-  .then(dbArticle => {
-      db.User.findOneAndUpdate({_id:req.body._id}, {"$push": {"favs":dbArticle} })}
-)});
+router.put("/favorite", function (req, res) {
+  console.log("hi")
+  db.Article
+    .findById(req.body._id)
+    .then(dbArticle => {
+      db.User
+        .findOneAndUpdate({ username: req.body.username }, { "$push": { "favs": dbArticle } })
+        .then(dbUser => res.json(dbUser))
+        .catch(err => res.status(422).json(err))
+    })
+});
 
 module.exports = router;
