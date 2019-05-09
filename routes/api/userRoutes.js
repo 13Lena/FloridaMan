@@ -61,12 +61,13 @@ router.get("/admin", authMiddleware.isAdmin, function (req, res, next) {
   });
 });
 
-router.put("/favorite", function (req, res) {
+router.put("/favorite/:id/:username", function (req, res) {
+  console.log(req.params.username)
   db.Article
-    .findById(req.body._id)
+    .findById(req.params.id)
     .then(dbArticle => {
       db.User
-        .findOneAndUpdate({ username: req.body.username }, { "$push": { "favs": dbArticle } })
+        .findOneAndUpdate({ username: req.params.username }, { "$push": { "favs": dbArticle } })
         .then(dbUser => res.json(dbUser))
         .catch(err => res.status(422).json(err))
     })

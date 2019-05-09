@@ -38,7 +38,8 @@ export default {
     },
 
     saveFavorite: (favData) => {
-        return axios.put("/api/user/favorite", favData);
+        console.log(favData)
+        return axios.put(`/api/user/favorite/${favData._id}/${favData.username}`);
     },
 
     isLoggedIn: function () {

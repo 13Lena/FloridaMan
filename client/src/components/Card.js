@@ -9,12 +9,13 @@ class Card extends Component {
     upvote: 0,
     downvote: 0,
     hasClicked: false,
-    username: this.props.username
+    username: sessionStorage.username
   }
 
   saveFavorite = (event) => {
+    console.log(event.target)
     const { value } = event.target;
-    console.log(this.state.username)
+    console.log(value)
     API.saveFavorite({
       _id: value,
       username: this.state.username
@@ -67,6 +68,7 @@ class Card extends Component {
   };
 
   render() {
+ 
     return (
       <Grid>
         <GridRow style={{}}>
