@@ -9,7 +9,7 @@ class Results extends Component {
     const dataArray = dataObject.articleData;
     console.log(dataArray.length);
     return (
-      <AutoSizer style={{ height: "80vh" }}>
+      <AutoSizer style={{ height: "83vh" }}>
         {({ height, width }) => (
           <List
             height={height}
