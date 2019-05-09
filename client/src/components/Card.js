@@ -102,10 +102,10 @@ class Card extends Component {
             </Modal>
             <Modal.Actions>
 
-              <div class="ui labeled right floated button" tabindex="0" >
-                <div class="ui tiny orange button"
+              <div className="ui labeled right floated button" tabIndex="0" >
+                <div className="ui tiny orange button"
                   onClick={() => this.handleDownIncrement(this.props.id)}>
-                  <i class="thumbs down icon"></i>
+                  <i className="thumbs down icon"></i>
                         </div>
                 <a className="ui basic left pointing orange label">{this.state.downvote}
                 </a>

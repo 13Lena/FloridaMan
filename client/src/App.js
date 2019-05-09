@@ -29,16 +29,22 @@ class App extends Component {
   this.setState({username: username})
  }
 
+ pageRedirect = () => {
+
+ }
+
   render() {
+    console.log("Session User: ", sessionStorage.username);
+    console.log("Session Status: ", sessionStorage.loggedIn)
     return (
       <Router>
         <div>
           <Nav handleMenuClick={this.handleMenuClick} />
           <Switch>
           <Route exact path='/' render={props => <Main {...props} username={this.state.username} category={this.state.category} />} />
-            <Route exact path="/signup" render={(props) => <Auth {...props} usernameCB={this.logUsername} action="signup" />} />
-            <Route exact path="/favorites" component={Favorites} />
-            <Route exact path="/login" render={(props) => <Auth {...props} usernameCB={this.logUsername} action="login" />} />
+            <Route exact path="/signup" render={(props) => <Auth {...props} pageRedirect={this.pageRedirect} usernameCB={this.logUsername} action="signup" />} />
+            <Route exact path="/favorites" render={props => <Favorites {...props} username={this.state.username} />} />
+            <Route exact path="/login" render={(props) => <Auth {...props} pageRedirect={this.pageRedirect} usernameCB={this.logUsername} action="login" />} />
           </Switch>
         </div>
       </Router>
