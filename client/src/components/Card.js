@@ -69,7 +69,7 @@ class Card extends Component {
   render() {
     return (
       <Grid>
-        <GridRow>
+        <GridRow style={{}}>
           <GridColumn width={6}>
             <Image src={this.props.imgUrl} rounded />
           </GridColumn>
@@ -105,7 +105,7 @@ class Card extends Component {
               <div class="ui labeled right floated button" tabindex="0" >
                 <div class="ui tiny orange button"
                   onClick={() => this.handleDownIncrement(this.props.id)}>
-                  <i class="arrow circle down icon"></i>Dislike
+                  <i class="thumbs down icon"></i>
                         </div>
                 <a className="ui basic left pointing orange label">{this.state.downvote}
                 </a>
@@ -113,7 +113,7 @@ class Card extends Component {
               <div className="ui labeled right floated button" tabIndex="0">
                 <div className="ui tiny teal button"
                   onClick={() => this.handleUpIncrement(this.props.id)}>
-                  <i className="arrow circle up icon"></i>like
+                  <i className="thumbs up icon"></i>
                         </div>
                 <a className="ui basic teal left pointing label">{this.state.upvote}</a>
               </div>
