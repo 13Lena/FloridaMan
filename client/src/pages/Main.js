@@ -49,7 +49,7 @@ class Main extends Component {
     render() {
         return (
             
-            <Results username={this.props.username} articleData={this.state.articleData} />
+            <Results username={this.props.username} articleData={this.state.articleData} key={this.props.category} />
         );
     }
 };
