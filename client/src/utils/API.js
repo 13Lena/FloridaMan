@@ -34,9 +34,9 @@ export default {
         return axios.post("/api/user/signup", signupInfo);
     },
 
-    saveFavorite: (id) => {
+    saveFavorite: (favData) => {
         console.log("hi");
-        return axios.put("/api/user/favorite", id);
+        return axios.put("/api/user/favorite", favData);
     }, 
 
     isLoggedIn: function() {

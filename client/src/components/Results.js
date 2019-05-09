@@ -23,7 +23,9 @@ class Results extends Component {
                         imgUrl={left.image_url || "https://images-na.ssl-images-amazon.com/images/I/71Y7JseBYYL._SX466_.jpg" } 
                         headline={left.headline} body={left.body} 
                         upvote={left.upvote} downvote={left.downvote} 
-                        id={left._id}/>
+                        id={left._id}
+                        username={this.props.username}
+                        />
                     </Grid.Column>
                     <Grid.Column  width={7}>
                         <Card tags={right.meta_tags} 
@@ -31,7 +33,9 @@ class Results extends Component {
                         headline={right.headline} body={right.body} 
                         upvote={right.upvote} 
                         downvote={right.downvote} 
-                        id={right._id} />
+                        id={right._id}
+                        username={this.props.username}
+                        />
 
                     </Grid.Column>
                     <GridColumn width={1}></GridColumn>
@@ -46,7 +50,9 @@ class Results extends Component {
                             imgUrl={left.image_url} 
                             headline={left.headline} 
                             upvote={left.upvote} 
-                            downvote={left.downvote} id={left._id}/>
+                            downvote={left.downvote} id={left._id}
+                            username={this.props.username}
+                            />
                         </Grid.Column>
                         <GridColumn width={1}></GridColumn>
                     </Grid.Row>

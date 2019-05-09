@@ -26,24 +26,26 @@ class Auth extends Component {
 
   handleLogin = event => {
     event.preventDefault();
-
+    this.props.usernameCB(this.state.email)
     if (this.state.email && this.state.password) {
       API.login({
         username: this.state.email,
         password: this.state.password
-      }).then(user => {
-        console.log("hey ",user);
-        if (user.data.loggedIn) {
+      }).then(username => {
+ 
+        if (username.data.loggedIn) {
+
           this.setState({
             loggedIn: true,
-            email: user.data.user
+            email: username.data.username
           });
+
           console.log("log in successful");
-          window.location.href = '/favorites';
+          // window.location.href = '/favorites';
         }
-        else if (user.data.message) {
+        else if (username.data.message) {
           this.setState({
-            message: user.data.message
+            message: username.data.message
           })
         }
       });
@@ -52,6 +54,7 @@ class Auth extends Component {
 
   handleSignup = event => {
     event.preventDefault();
+    this.props.usernameCB(this.state.email)
     if (this.state.email && this.state.password) {
       API.signup({
         username: this.state.email,
@@ -62,6 +65,7 @@ class Auth extends Component {
             loggedIn: true,
             email: username.data.username
           });
+
           console.log("log in successful");
           window.location.href = '/favorites';
         } else {

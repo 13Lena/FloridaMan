@@ -11,7 +11,8 @@ class App extends Component {
 
   state = {
     category: "",
-    clicked: false
+    clicked: false,
+    username: null
   }
 
   handleMenuClick = (event) => {
@@ -23,17 +24,21 @@ class App extends Component {
     setTimeout(() => console.log(this.state.category), 50)
  }
 
+ logUsername = username => {
+  console.log("app: ",username)
+  this.setState({username: username})
+ }
+
   render() {
     return (
       <Router>
         <div>
           <Nav handleMenuClick={this.handleMenuClick} />
           <Switch>
-          <Route exact path='/' render={props => <Main {...props} category={this.state.category} />} />
-            <Route exact path="/" component={Main} />
-            <Route exact path="/signup" render={(props) => <Auth {...props} action="signup" />} />
+          <Route exact path='/' render={props => <Main {...props} username={this.state.username} category={this.state.category} />} />
+            <Route exact path="/signup" render={(props) => <Auth {...props} usernameCB={this.logUsername} action="signup" />} />
             <Route exact path="/favorites" component={Favorites} />
-            <Route exact path="/login" render={(props) => <Auth {...props} action="login" />} />
+            <Route exact path="/login" render={(props) => <Auth {...props} usernameCB={this.logUsername} action="login" />} />
           </Switch>
         </div>
       </Router>
