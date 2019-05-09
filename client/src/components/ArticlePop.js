@@ -4,7 +4,7 @@ import { Modal } from "semantic-ui-react";
 
 
 function ArticlePop(props) {
-
+  console.log(props.id)
   return (
             <div style={{padding: "15px"}}>
                 <Modal.Content image>

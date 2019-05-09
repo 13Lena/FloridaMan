@@ -20,7 +20,7 @@ class Favorites extends Component {
         API.getFavorites(sessionStorage.username)
             .then(res => {
                 const dataToBeMapped = [];
-                for (let i = 0; i < res.data.favs.length; i += 2) {
+                for (let i = 0; i < res.data.favs.length; i++) {
                     dataToBeMapped.push(res.data.favs[i])
                 }
                 this.setState({ articleData: dataToBeMapped });
