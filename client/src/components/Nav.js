@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Dropdown, Menu, DropdownItem } from "semantic-ui-react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as  Router, Route, Link } from "react-router-dom";
 
 class Nav extends Component {
   state = {
@@ -12,18 +12,6 @@ class Nav extends Component {
 
   closeConfigShow = (closeOnEscape, closeOnDimmerClick) => () => {
     this.setState({ closeOnEscape, closeOnDimmerClick, open: true })
-  }
-
-  show1 = () => this.setState({ loginOpen: true })
-  show2 = () => this.setState({ signupOpen: true })
-  close = () => this.setState({ loginOpen: false, signupOpen: false })
-
-  handleItemClick1 = () => {
-    this.show1();
-  }
-
-  handleItemClick2 = () => {
-    this.show2();
   }
 
 
@@ -70,25 +58,28 @@ class Nav extends Component {
               <DropdownItem href="https://www.atlasobscura.com/articles/whatever-you-do-do-not-eat-touch-or-even-inhale-the-air-around-the-manchineel-tree" target="_blank" text="Worst Plant Ever" />
               <DropdownItem href="https://www.nydailynews.com/news/world-hilarious-mug-shots-gallery-1.14220" text="Mugshot Hall of Fame" />
               <DropdownItem href="https://www.youtube.com/watch?v=UD9LEPML8uk" target="_blank" text="Who is Florida Man?" />
-              <DropdownItem  href="https://www.atlasobscura.com/lists/the-best-of-weird-florida" target="_blank" text="Weird Florida" />
+              <DropdownItem href="https://www.atlasobscura.com/lists/the-best-of-weird-florida" target="_blank" text="Weird Florida" />
 
             </Dropdown.Menu>
           </Dropdown>
           
           <Menu.Item 
             name="favorites"            
-          >Favorites
+          >
+          <Link to="/favorites">Favorites</Link>
           </Menu.Item>
 
           <Menu.Item
             position="right"
             name="login"
             onClick={this.handleItemClick1}
-          ><Link to="/login"> Login</Link>
+          >
+          <Link to="/login">Login</Link>
           </Menu.Item>
           <Menu.Item
             name="signup"
-          ><Link to="/signup">Signup</Link>
+          >
+          <Link to="/signup">Signup</Link>
           </Menu.Item>
 
         </Menu>

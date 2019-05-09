@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Modal } from "semantic-ui-react";
 import { Grid, GridColumn, GridRow, Form, Button } from "semantic-ui-react";
 
+
 class Signup extends Component {
     state = {
         validEmail: false,

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import API from "../utils/API";
+import { BrowserRouter as  Router, Route } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 
 
@@ -56,7 +57,7 @@ class Auth extends Component {
 
   handleSignup = event => {
     event.preventDefault();
-    sessionStorage.username = this.state.username;
+    sessionStorage.username = this.state.email;
     this.props.usernameCB(this.state.email)
     if (this.state.email && this.state.password) {
       API.signup({
